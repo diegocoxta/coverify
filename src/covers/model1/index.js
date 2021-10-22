@@ -25,21 +25,16 @@ const Title = styled.p`
 const ImageContainer = styled.div`
   width: 210px;
   height: 130px;
-  background: #fff;
-`;
-
-const Image = styled.img`
-  width: 210px;
-  height: 130px;
+  background: #fff url(${props => props.background});
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 export default function Model1(props) {
   return (
     <Container ref={props.generatedContentRef} color={props.color}>
       <Title>{props.title}</Title>
-      <ImageContainer>
-        {props.image && <Image src={props.image} />}
-      </ImageContainer>
+      <ImageContainer background={props.image} />
     </Container>
   );
 }
