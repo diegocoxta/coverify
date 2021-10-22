@@ -38,7 +38,7 @@ export default function Model1(props) {
     <Container ref={props.generatedContentRef} color={props.color}>
       <Title>{props.title}</Title>
       <ImageContainer>
-        <Image src={props.image} />
+        {props.image && <Image src={props.image} />}
       </ImageContainer>
     </Container>
   );
