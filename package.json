@@ -19,7 +19,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint . && stylelint src",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [
@@ -37,6 +40,33 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.3",
+    "prettier": "^2.4.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recommended": "^5.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": [
+      "yarn lint",
+      "yarn prettier",
+      "stylelint"
     ]
   }
 }

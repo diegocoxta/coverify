@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import domtoimage from 'dom-to-image-more'
+import domtoimage from 'dom-to-image-more';
 import FileSaver from 'file-saver';
 import { ChromePicker } from 'react-color';
-
 
 import Model1 from './covers/model1';
 
@@ -17,53 +16,41 @@ const Container = styled.div`
 
 export default function App() {
   const [title, setTitle] = useState('Your playlist name');
-  const [color, setColor] = useState('#7900D9');
+  const [titleColor, setTitleColor] = useState('black');
+  const [accentColor, setAccentColor] = useState('#7900D9');
   const [file, setFile] = useState(null);
+  const [spotifyLogo, setSpotifyLogo] = useState('spotifyBlackLogo');
 
   const generatedContentRef = useRef(null);
 
-  useEffect(() => {
-
-    if (file) {
-      getHeightAndWidthFromDataUrl(file).then((obj) => {
-        console.log({ obj });
-      })
-    }
-
-  }, [file]);
-
-  const getHeightAndWidthFromDataUrl = dataURL => new Promise(resolve => {
-    const img = new Image()
-    img.onload = () => {
-      resolve({
-        height: img.height,
-        width: img.width
-      })
-    }
-    img.src = dataURL
-  })
-
-
   function createImageToDownload() {
-    // Generate meme image from the content of 'content' div
     domtoimage.toBlob(generatedContentRef.current, { quality: 1, scale: 3 }).then((dataUrl) => {
-      FileSaver.saveAs(dataUrl, "cover.png");    
-    })
+      FileSaver.saveAs(dataUrl, 'cover.png');
+    });
   }
-
-  
-  
 
   return (
     <Container>
-      <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
-      <input type="file" onChange={e => setFile(e.target.files[0])} />
-      <ChromePicker color={color} onChange={color => setColor(color.hex)} />
+      <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <select value={titleColor} onChange={(e) => setTitleColor(e.target.value)}>
+        <option value="#000000">Black</option>
+        <option value="#ffffff">White</option>
+      </select>
+      <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+      <ChromePicker color={accentColor} onChange={(color) => setAccentColor(color.hex)} />
+      <select value={spotifyLogo} onChange={(e) => setSpotifyLogo(e.target.value)}>
+        <option value="spotifyBlackLogo">Black</option>
+        <option value="spotifyWhiteLogo">White</option>
+        <option value="">Without Spotify Logo</option>
+      </select>
       <Model1
         generatedContentRef={generatedContentRef}
         title={title}
-        color={color}
-        image={file && URL.createObjectURL(file)} />
+        titleColor={titleColor}
+        color={accentColor}
+        spotifyLogo={spotifyLogo}
+        image={file && URL.createObjectURL(file)}
+      />
       <button onClick={createImageToDownload}>Download Image</button>
     </Container>
   );
