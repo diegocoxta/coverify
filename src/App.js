@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import domtoimage from 'dom-to-image-more'
 import FileSaver from 'file-saver';
@@ -18,11 +18,31 @@ const Container = styled.div`
 export default function App() {
   const [title, setTitle] = useState('Your playlist name');
   const [color, setColor] = useState('#7900D9');
-  const [image, setImage] = useState(null);
+  const [file, setFile] = useState(null);
 
   const generatedContentRef = useRef(null);
 
-  console.log({ image })
+  useEffect(() => {
+
+    if (file) {
+      getHeightAndWidthFromDataUrl(file).then((obj) => {
+        console.log({ obj });
+      })
+    }
+
+  }, [file]);
+
+  const getHeightAndWidthFromDataUrl = dataURL => new Promise(resolve => {
+    const img = new Image()
+    img.onload = () => {
+      resolve({
+        height: img.height,
+        width: img.width
+      })
+    }
+    img.src = dataURL
+  })
+
 
   function createImageToDownload() {
     // Generate meme image from the content of 'content' div
@@ -31,16 +51,19 @@ export default function App() {
     })
   }
 
+  
+  
+
   return (
     <Container>
       <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
-      <input type="file" onChange={e => setImage(URL.createObjectURL(e.target.files[0]))} />
+      <input type="file" onChange={e => setFile(e.target.files[0])} />
       <ChromePicker color={color} onChange={color => setColor(color.hex)} />
       <Model1
         generatedContentRef={generatedContentRef}
         title={title}
         color={color}
-        image={image} />
+        image={file && URL.createObjectURL(file)} />
       <button onClick={createImageToDownload}>Download Image</button>
     </Container>
   );
