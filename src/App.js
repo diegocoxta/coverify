@@ -6,14 +6,15 @@ import ImagePicker from './components/ImagePicker';
 import OptionsToggle from './components/OptionsToggle';
 import ColorPreview from './components/ColorPreview';
 import DownloadButton from './components/DownloadButton';
+import Input from './components/Input';
 import Covers from './components/Covers';
 
 const Container = styled.div`
-  width: 960px;
   margin: 0 auto;
   background: gray;
 
   @media (min-width: 760px) {
+    width: 960px;
     display: flex;
   }
 `;
@@ -29,17 +30,6 @@ const Preview = styled.div`
   width: 100%;
 `;
 
-const TitleInput = styled.input`
-  background: #fff;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 10px;
-
-  :focus {
-    outline: none;
-  }
-`;
-
 export default function App() {
   const [title, setTitle] = useState('Your playlist name');
   const [titleColor, setTitleColor] = useState('#000000');
@@ -52,7 +42,7 @@ export default function App() {
   return (
     <Container>
       <Form>
-        <TitleInput type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <Input maxLength={24} type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
         <OptionsToggle
           label="Choose the title color"
           value={titleColor}
