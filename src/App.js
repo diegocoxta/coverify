@@ -43,7 +43,7 @@ const TitleInput = styled.input`
 
 export default function App() {
   const [title, setTitle] = useState('Your playlist name');
-  const [titleColor, setTitleColor] = useState('black');
+  const [titleColor, setTitleColor] = useState('#000000');
   const [accentColor, setAccentColor] = useState('#7900D9');
   const [image, setImage] = useState(null);
   const [spotifyLogo, setSpotifyLogo] = useState('spotifyBlackLogo');
