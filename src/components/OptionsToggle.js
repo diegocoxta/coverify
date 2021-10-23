@@ -1,14 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Label from './Label';
+
 const Container = styled.div`
   margin: 20px 0;
-`;
-
-const Label = styled.p`
-  font-size: 18px;
-  margin: 10px 0;
-  font-family: Arial, sans-serif;
 `;
 
 const Options = styled.div`
