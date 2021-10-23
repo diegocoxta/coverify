@@ -1,7 +1,6 @@
 {
   "processors": ["stylelint-processor-styled-components"],
   "extends": ["stylelint-config-recommended", "stylelint-config-styled-components"],
-  "customSyntax": "postcss-styled",
   "rules": {
     "block-no-empty": null,
     "color-no-invalid-hex": true,
