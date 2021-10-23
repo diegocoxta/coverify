@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import DraggableImage from './components/DraggableImage';
+import DraggableImage from '../components/DraggableImage';
 
 const Header = styled.div`
   height: 80px;
   width: 230px;
-  margin: 40px 0 15px;
+  margin: 30px 0 15px;
   word-break: break-word;
   text-align: center;
   overflow: hidden;
@@ -24,17 +24,17 @@ const Title = styled.p`
 `;
 
 const Image = styled.div`
-  width: 310px;
-  height: 190px;
+  width: 340px;
+  height: 215px;
   background: #fff;
   overflow: hidden;
 `;
 
-export default function Model1(props) {
+export default function Model4(props) {
   return (
     <>
       <Header>
-        <Title color={props.titleColor}>{props.title.substring(0, 24)}</Title>
+        <Title color={props.titleColor}>{props.title}</Title>
       </Header>
       <Image>{props.image && <DraggableImage source={props.image} width={360} />}</Image>
     </>

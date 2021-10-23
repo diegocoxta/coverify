@@ -36,13 +36,14 @@ export default function App() {
   const [accentColor, setAccentColor] = useState('#7900D9');
   const [image, setImage] = useState(null);
   const [spotifyLogo, setSpotifyLogo] = useState('spotifyBlackLogo');
+  const [view, setView] = useState(1);
 
   const generatedContentRef = useRef(null);
 
   return (
     <Container>
       <Form>
-        <Input maxLength={24} type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <Input maxLength={22} type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
         <OptionsToggle
           label="Choose the title color"
           value={titleColor}
@@ -94,6 +95,17 @@ export default function App() {
         />
       </Form>
       <Preview>
+        <OptionsToggle
+          label="Choose your favorite cover model"
+          value={view}
+          onChange={setView}
+          options={[
+            { value: 1, label: 'Model 1' },
+            { value: 2, label: 'Model 2' },
+            { value: 3, label: 'Model 3' },
+            { value: 4, label: 'Model 4' },
+          ]}
+        />
         <Covers
           innerRef={generatedContentRef}
           title={title}
@@ -101,7 +113,9 @@ export default function App() {
           color={accentColor}
           logo={spotifyLogo}
           image={image}
+          view={view}
         />
+
         <DownloadButton content={generatedContentRef.current} />
       </Preview>
     </Container>
