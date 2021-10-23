@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Label from './Label';
 
 const Container = styled.div`
-  margin: 20px 0;
+  margin: 0;
 `;
 
 const Options = styled.div`
@@ -14,7 +14,7 @@ const Options = styled.div`
 const Option = styled.button`
   font-family: Arial, sans-serif;
   display: flex;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   border: 2px solid #fff;
   padding: 10px;
   border-radius: 30px;

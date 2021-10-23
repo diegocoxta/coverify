@@ -23,7 +23,8 @@ const Counter = styled.p`
   margin: 0px;
   font-family: Arial, sans-serif;
   font-size: 12px;
-  margin: 10px 0;
+  margin: 10px 0 0;
+  color: #efefef;
 `;
 
 export default function Input(props) {
