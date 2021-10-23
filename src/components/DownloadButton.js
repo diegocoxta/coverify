@@ -7,6 +7,7 @@ import Button from './Button';
 
 const CustomButton = styled(Button)`
   background: #21c549;
+  margin: 20px 0;
 `;
 
 export default function DownloadBUtton(props) {
