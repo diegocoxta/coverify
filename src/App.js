@@ -1,13 +1,12 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
-import Model1 from './covers/model1';
-
 import ColorPicker from './components/ColorPicker';
 import ImagePicker from './components/ImagePicker';
 import OptionsToggle from './components/OptionsToggle';
 import ColorPreview from './components/ColorPreview';
 import DownloadButton from './components/DownloadButton';
+import Covers from './components/Covers';
 
 const Container = styled.div`
   width: 960px;
@@ -105,13 +104,13 @@ export default function App() {
         />
       </Form>
       <Preview>
-        <Model1
-          generatedContentRef={generatedContentRef}
+        <Covers
+          innerRef={generatedContentRef}
           title={title}
           titleColor={titleColor}
           color={accentColor}
-          spotifyLogo={spotifyLogo}
-          image={image && URL.createObjectURL(image)}
+          logo={spotifyLogo}
+          image={image}
         />
         <DownloadButton content={generatedContentRef.current} />
       </Preview>
