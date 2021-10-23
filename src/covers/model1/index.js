@@ -5,13 +5,13 @@ import Draggable from 'react-draggable';
 import * as assets from '../../assets';
 
 const Container = styled.div`
-  width: 240px;
-  height: 240px;
+  width: 400px;
+  height: 400px;
   background-color: ${(props) => props.color};
   background-image: url(${(props) => assets[props.spotifyLogo]});
   background-repeat: no-repeat;
-  background-size: 20px;
-  background-position: 15px 15px;
+  background-size: 30px;
+  background-position: 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,27 +23,30 @@ const Title = styled.p`
   font-family: Arial, sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 26px;
+  font-size: 48px;
   line-height: 1;
-  text-align: center;
   letter-spacing: -0.04em;
   color: ${(props) => props.color};
-  width: 180px;
+  width: 360px;
   margin: 10px;
-  height: 55px;
+  height: 100px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 `;
 
 const ImageContainer = styled.div`
-  width: 210px;
-  height: 130px;
+  width: 360px;
+  height: 230px;
   background: #fff;
   position: relative;
   overflow: hidden;
 `;
 
 const Image = styled.img`
-  width: 210px;
+  width: 360px;
   cursor: grabbing;
 `;
 
