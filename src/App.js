@@ -144,6 +144,9 @@ export default function App() {
             />
           </Fieldset>
           <Fieldset>
+            <ImagePicker label="Image" image={image} setImage={setImage} />
+          </Fieldset>
+          <Fieldset>
             <OptionsToggle
               label="Template"
               value={view}
@@ -156,9 +159,6 @@ export default function App() {
               ]}
             />
             <ColorPicker color={accentColor} setColor={setAccentColor} />
-          </Fieldset>
-          <Fieldset>
-            <ImagePicker label="Image" image={image} setImage={setImage} />
           </Fieldset>
           <Fieldset>
             <OptionsToggle
