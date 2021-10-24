@@ -6,6 +6,10 @@ import Button from './Button';
 import ColorPreview from './ColorPreview';
 import Label from './Label';
 
+const Container = styled.div`
+  margin: 20px 0 0;
+`;
+
 const Popover = styled.div`
   position: absolute;
   z-index: 2;
@@ -23,7 +27,7 @@ export default function ColorPicker(props) {
   const [colorPicker, setColorPicker] = useState(false);
 
   return (
-    <>
+    <Container>
       {props.label && <Label>{props.label}</Label>}
       <Button onClick={() => setColorPicker(!colorPicker)}>
         <ColorPreview color={props.color} />
@@ -35,6 +39,6 @@ export default function ColorPicker(props) {
           <ChromePicker color={props.color} onChange={(color) => props.setColor(color.hex)} />
         </Popover>
       )}
-    </>
+    </Container>
   );
 }
