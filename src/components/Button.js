@@ -6,7 +6,6 @@ export default styled.button`
   align-items: center;
   padding: 15px;
   border-radius: 20px;
-  border: 0px;
   cursor: pointer;
   width: 100%;
   background: transparent;

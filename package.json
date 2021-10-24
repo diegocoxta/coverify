@@ -17,7 +17,8 @@
     "build": "react-scripts build",
     "lint": "eslint . && stylelint src",
     "lint:fix": "eslint . --fix",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -43,10 +44,11 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "husky": "^7.0.4",
-    "lint-staged": "^11.2.3",
+    "lint-staged": "^11.2.4",
+    "postcss-syntax": "^0.36.2",
     "prettier": "^2.4.1",
-    "stylelint": "^13.13.1",
-    "stylelint-config-recommended": "^5.0.0",
+    "stylelint": "^14.0.0",
+    "stylelint-config-recommended": "^6.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0"
   },
