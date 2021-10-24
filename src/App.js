@@ -107,7 +107,8 @@ export default function App() {
       <GlobalStyle />
       <GradientBackground color={accentColor} />
       <Avatar />
-      <Header>Create Spotify-inspired covers for your personal playlists.</Header>
+      <Header>covermix.</Header>
+      <SubHeader>Create Spotify-inspired covers for your personal playlists.</SubHeader>
       <Container>
         <Form>
           <Fieldset>
