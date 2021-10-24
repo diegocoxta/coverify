@@ -39,6 +39,7 @@ const Header = styled.h1`
   margin-top: 20px;
   padding: 20px 20px 0;
   font-weight: 400;
+  text-align: center;
 `;
 
 const SubHeader = styled.p`
@@ -46,7 +47,8 @@ const SubHeader = styled.p`
   margin: 0;
   padding: 0;
   font-size: 18px;
-  margin: 0 20px;
+  margin: 0 20px 50px;
+  text-align: center;
 `;
 
 const Container = styled.div`
@@ -77,15 +79,14 @@ const Form = styled.div`
 `;
 
 const Preview = styled.div`
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 10px;
 `;
 
 const Fieldset = styled.div`
-  margin: 20px 10px;
+  margin: 0px 10px 20px;
   padding: 20px;
   box-sizing: border-box;
   background: #181818;
@@ -107,11 +108,11 @@ export default function App() {
       <GlobalStyle />
       <GradientBackground color={accentColor} />
       <Avatar />
+      <Header>covermix.</Header>
+      <SubHeader>Create Spotify-inspired covers for your personal playlists.</SubHeader>
+
       <Container>
         <Form>
-          <Header>covermix.</Header>
-          <SubHeader>Create Spotify-inspired covers for your personal playlists.</SubHeader>
-
           <Fieldset>
             <OptionsToggle
               label="Cover Template"
