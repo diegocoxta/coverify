@@ -6,13 +6,14 @@ import Label from './Label';
 const Container = styled.div``;
 
 const Field = styled.input`
-  background: #fff;
+  background: #262626;
   padding: 10px;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 0px;
   width: 100%;
   box-sizing: border-box;
+  color: #b5b5b5;
 
   :focus {
     outline: none;
@@ -21,10 +22,9 @@ const Field = styled.input`
 
 const Counter = styled.p`
   margin: 0px;
-  font-family: Arial, sans-serif;
   font-size: 12px;
   margin: 10px 0 0;
-  color: #efefef;
+  color: #b5b5b5;
 `;
 
 export default function Input(props) {

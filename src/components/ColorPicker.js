@@ -25,7 +25,7 @@ export default function ColorPicker(props) {
     <>
       <Button onClick={() => setColorPicker(!colorPicker)}>
         <ColorPreview color={props.color} />
-        {props.color ? 'Choose another color' : 'Choose an color'}
+        Choose an color
       </Button>
       {colorPicker && (
         <Popover>

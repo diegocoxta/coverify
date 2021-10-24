@@ -12,23 +12,22 @@ const Options = styled.div`
 `;
 
 const Option = styled.button`
-  font-family: Arial, sans-serif;
   display: flex;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid #fff;
   padding: 10px;
   border-radius: 30px;
-  color: #fff;
-  font-weight: 600;
   cursor: pointer;
   margin: 0 10px 0 0;
   transition: 0.5s all linear;
+  background: transparent;
+  border: 1px solid #3f3f3f;
+  color: #b5b5b5;
+  text-transform: uppercase;
 
   :hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
   }
 
-  ${(props) => props.selected && `background: rgba(255, 255, 255, 0.5);`}
+  ${(props) => props.selected && `background: rgba(255, 255, 255, 0.1);`}
 `;
 
 export default function OptionsToggle(props) {

@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 import DraggableImage from '../components/DraggableImage';
+import BlankImage from '../components/BlankImage';
 import * as assets from '../../../assets';
 
 const Title = styled.p`
-  font-family: Arial, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 28px;
@@ -31,11 +31,9 @@ const SpotifyLogo = styled.div`
   left: 20px;
 `;
 
-const Image = styled.div`
+const Image = styled(BlankImage)`
   width: 340px;
   height: 330px;
-  background: #fff;
-  overflow: hidden;
   border-bottom: 10px solid ${(props) => props.color};
   position: absolute;
 `;

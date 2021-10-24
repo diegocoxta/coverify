@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import DraggableImage from '../components/DraggableImage';
+import BlankImage from '../components/BlankImage';
 
 const Header = styled.div`
   height: 80px;
@@ -13,7 +14,6 @@ const Header = styled.div`
 `;
 
 const Title = styled.p`
-  font-family: Arial, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 38px;
@@ -23,11 +23,9 @@ const Title = styled.p`
   color: ${(props) => props.color};
 `;
 
-const Image = styled.div`
+const Image = styled(BlankImage)`
   width: 340px;
   height: 215px;
-  background: #fff;
-  overflow: hidden;
 `;
 
 export default function Model4(props) {
