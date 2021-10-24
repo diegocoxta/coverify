@@ -31,6 +31,7 @@ export default function DownloadBUtton(props) {
       // call this method twice as a temporary fix to iOS Sarafi limitations
       domtoimage.toPng(props.content, { quality: 1, scale: 3 }).then((dataUrl) => {
         FileSaver.saveAs(dataUrl, 'cover.png');
+        props.onDownload && props.onDownload();
       });
     });
   }

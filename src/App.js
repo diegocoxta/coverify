@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import GA from 'react-ga';
 
 import ColorPicker from './components/ColorPicker';
 import ImagePicker from './components/ImagePicker';
@@ -103,10 +102,6 @@ export default function App() {
 
   const generatedContentRef = useRef(null);
 
-  useEffect(() => {
-    GA.initialize('G-LFMLTQ2HKP', { debug: true });
-  }, []);
-
   return (
     <>
       <GlobalStyle />
@@ -124,9 +119,9 @@ export default function App() {
               value={title}
               onChange={(e) => {
                 setTitle(e.target.value);
-                GA.event({
-                  category: 'edit',
+                window.gtag('event', 'cover_edit', {
                   action: 'title_changed',
+                  value: e.target.value,
                 });
               }}
             />
@@ -134,8 +129,7 @@ export default function App() {
               value={titleColor}
               onChange={(color) => {
                 setTitleColor(color);
-                GA.event({
-                  category: 'edit',
+                window.gtag('event', 'cover_edit', {
                   action: 'title_color_changed',
                   value: color,
                 });
@@ -161,13 +155,28 @@ export default function App() {
             />
           </Fieldset>
           <Fieldset>
-            <ImagePicker label="Image" image={image} setImage={setImage} />
+            <ImagePicker
+              label="Image"
+              image={image}
+              setImage={(image) => {
+                setImage(image);
+                window.gtag('event', 'cover_edit', {
+                  action: 'image_changed',
+                });
+              }}
+            />
           </Fieldset>
           <Fieldset>
             <OptionsToggle
               label="Template"
               value={view}
-              onChange={setView}
+              onChange={(view) => {
+                window.gtag('event', 'cover_edit', {
+                  action: 'view_changed',
+                  value: view,
+                });
+                setView(view);
+              }}
               options={[
                 { value: 1, label: '#1' },
                 { value: 2, label: '#2' },
@@ -175,13 +184,28 @@ export default function App() {
                 { value: 4, label: '#4' },
               ]}
             />
-            <ColorPicker color={accentColor} setColor={setAccentColor} />
+            <ColorPicker
+              color={accentColor}
+              setColor={(color) => {
+                setAccentColor(color);
+                window.gtag('event', 'cover_edit', {
+                  action: 'color_changed',
+                  value: color,
+                });
+              }}
+            />
           </Fieldset>
           <Fieldset>
             <OptionsToggle
               label="Spotify Icon"
               value={spotifyLogo}
-              onChange={setSpotifyLogo}
+              onChange={(logo) => {
+                setSpotifyLogo(logo);
+                window.gtag('event', 'cover_edit', {
+                  action: 'spotify_logo_changed',
+                  value: logo,
+                });
+              }}
               options={[
                 {
                   value: 'spotifyBlackLogo',
@@ -214,7 +238,12 @@ export default function App() {
             image={image}
             view={view}
           />
-          <DownloadButton content={generatedContentRef.current} />
+          <DownloadButton
+            onDownload={() => {
+              window.gtag('event', 'cover_download');
+            }}
+            content={generatedContentRef.current}
+          />
         </Preview>
       </Container>
       <Footer />
