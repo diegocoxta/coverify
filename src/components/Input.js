@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 import Label from './Label';
 
-const Container = styled.div``;
+const Container = styled.div`
+  margin-bottom: 20px;
+`;
 
 const Field = styled.input`
   background: #262626;
