@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 import Button from './Button';
+import Label from './Label';
 
 const Container = styled.div``;
 
@@ -30,12 +31,13 @@ export default function ImagePicker(props) {
 
   return (
     <Container>
+      {props.label && <Label>{props.label}</Label>}
       <Button onClick={() => inputRef.current.click()}>
         {props.image ? 'Choose another image' : 'Choose an image'}
       </Button>
       <HiddenInput ref={inputRef} type="file" onChange={(e) => changeImage(e.target.files[0])} />
       <PrivacyDisclaimer>
-        The image will be processed in your browser, it should never be collected, or stored by me.
+        The image will be processed in your browser and it should never be collected, or stored by me.
       </PrivacyDisclaimer>
     </Container>
   );

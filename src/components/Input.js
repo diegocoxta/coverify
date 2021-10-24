@@ -30,7 +30,7 @@ const Counter = styled.p`
 export default function Input(props) {
   return (
     <Container>
-      <Label>Playlist name</Label>
+      <Label>{props.placeholder}</Label>
       <Field {...props} />
       <Counter>{props.maxLength - props.value.length} remaining characters</Counter>
     </Container>

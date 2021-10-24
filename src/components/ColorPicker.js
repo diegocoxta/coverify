@@ -4,6 +4,7 @@ import { ChromePicker } from 'react-color';
 
 import Button from './Button';
 import ColorPreview from './ColorPreview';
+import Label from './Label';
 
 const Popover = styled.div`
   position: absolute;
@@ -23,6 +24,7 @@ export default function ColorPicker(props) {
 
   return (
     <>
+      {props.label && <Label>{props.label}</Label>}
       <Button onClick={() => setColorPicker(!colorPicker)}>
         <ColorPreview color={props.color} />
         Choose an color

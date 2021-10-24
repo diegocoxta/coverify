@@ -25,6 +25,12 @@ const Cover = styled.div`
   position: relative;
 `;
 
+const Disclaimer = styled.p`
+  color: #b5b5b5;
+  text-align: center;
+  font-size: 12px;
+`;
+
 export default function Covers(props) {
   const renderViews = (view) => {
     switch (view) {
@@ -45,6 +51,7 @@ export default function Covers(props) {
       <Cover ref={props.innerRef} color={props.color} logo={props.logo}>
         {renderViews(props.view)}
       </Cover>
+      <Disclaimer>Tip: Drag the image to position adjustment.</Disclaimer>
     </Container>
   );
 }
