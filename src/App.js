@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useRef } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
@@ -14,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background-color:#121212;
+    background-color: #121212;
     background-size: 100% 200px;
     background-repeat: no-repeat;
     font-family: Arial, sans-serif;
@@ -34,7 +35,6 @@ const GradientBackground = styled.div`
 const Header = styled.h1`
   color: #fff;
   margin: 0;
-  padding: 0;
   font-size: 56px;
   margin-top: 20px;
   padding: 20px 20px 0;
@@ -44,7 +44,6 @@ const Header = styled.h1`
 
 const SubHeader = styled.p`
   color: #a4a4a4;
-  margin: 0;
   padding: 0;
   font-size: 18px;
   margin: 0 20px 50px;
@@ -108,8 +107,7 @@ export default function App() {
       <GlobalStyle />
       <GradientBackground color={accentColor} />
       <Avatar />
-      <Header>covermix.</Header>
-      <SubHeader>Create Spotify-inspired covers for your personal playlists.</SubHeader>
+      <Header>Create Spotify-inspired covers for your personal playlists.</Header>
       <Container>
         <Form>
           <Fieldset>

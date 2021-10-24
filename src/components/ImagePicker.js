@@ -11,7 +11,6 @@ const HiddenInput = styled.input`
 `;
 
 const PrivacyDisclaimer = styled.p`
-  margin: 0px;
   font-size: 12px;
   margin: 10px 0 0;
   color: #b5b5b5;

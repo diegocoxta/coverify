@@ -23,7 +23,6 @@ const Field = styled.input`
 `;
 
 const Counter = styled.p`
-  margin: 0px;
   font-size: 12px;
   margin: 10px 0 0;
   color: #b5b5b5;
