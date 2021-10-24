@@ -7,17 +7,20 @@ const Container = styled.a`
   display: flex;
   align-items: center;
   padding: 3px;
-  font-family: Arial, sans-serif;
   text-decoration: none;
-
   position: fixed;
-  top: 20px;
-  right: 40px;
-
+  top: 10px;
+  right: 10px;
   width: 148px;
+  transition: all 0.2s;
 
   :hover {
     background: #1e1e1e;
+  }
+
+  @media (min-width: 750px) {
+    top: 20px;
+    right: 40px;
   }
 `;
 

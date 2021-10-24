@@ -8,6 +8,14 @@ import Button from './Button';
 const CustomButton = styled(Button)`
   background: #21c549;
   margin: 20px 0;
+  color: #fff;
+  border: 0px;
+  transition: transform 0.2s;
+
+  :hover {
+    background: #21c549;
+    transform: scale(1.05);
+  }
 `;
 
 export default function DownloadBUtton(props) {

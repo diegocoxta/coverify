@@ -9,6 +9,14 @@ const HiddenInput = styled.input`
   display: none;
 `;
 
+const PrivacyDisclaimer = styled.p`
+  margin: 0px;
+  font-size: 12px;
+  margin: 10px 0 0;
+  color: #b5b5b5;
+  text-align: center;
+`;
+
 export default function ImagePicker(props) {
   const inputRef = useRef(null);
 
@@ -26,6 +34,9 @@ export default function ImagePicker(props) {
         {props.image ? 'Choose another image' : 'Choose an image'}
       </Button>
       <HiddenInput ref={inputRef} type="file" onChange={(e) => changeImage(e.target.files[0])} />
+      <PrivacyDisclaimer>
+        The image will be processed in your browser, it should never be collected, or stored by me.
+      </PrivacyDisclaimer>
     </Container>
   );
 }
