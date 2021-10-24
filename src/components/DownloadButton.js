@@ -10,20 +10,34 @@ const CustomButton = styled(Button)`
   margin: 20px 0;
   color: #fff;
   border: 0px;
-  transition: transform 0.2s;
+  transition: all 0.2s;
 
-  :hover {
-    background: #21c549;
-    transform: scale(1.05);
+  :disabled {
+    cursor: default;
+    background: gray;
+  }
+
+  :enabled {
+    :hover {
+      background: #21c549;
+      transform: scale(1.05);
+    }
   }
 `;
 
 export default function DownloadBUtton(props) {
   function download() {
-    domtoimage.toBlob(props.content, { quality: 1, scale: 3 }).then((dataUrl) => {
-      FileSaver.saveAs(dataUrl, 'cover.png');
+    domtoimage.toPng(props.content, { quality: 1, scale: 3 }).then(() => {
+      // call this method twice as a temporary fix to iOS Sarafi limitations
+      domtoimage.toPng(props.content, { quality: 1, scale: 3 }).then((dataUrl) => {
+        FileSaver.saveAs(dataUrl, 'cover.png');
+      });
     });
   }
 
-  return <CustomButton onClick={download}>Download Image</CustomButton>;
+  return (
+    <CustomButton disabled={!props.content} onClick={download}>
+      Download Image
+    </CustomButton>
+  );
 }
