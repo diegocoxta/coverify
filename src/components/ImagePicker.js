@@ -20,12 +20,21 @@ const PrivacyDisclaimer = styled.p`
 export default function ImagePicker(props) {
   const inputRef = useRef(null);
 
-  const changeImage = (file) => {
+  const changeImage = async (file) => {
     if (!file) {
       return false;
     }
 
-    props.setImage(file);
+    function getBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+      });
+    }
+
+    getBase64(file).then(props.setImage);
   };
 
   return (
