@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import GA from 'react-ga';
 
 import ColorPicker from './components/ColorPicker';
 import ImagePicker from './components/ImagePicker';
@@ -102,6 +103,10 @@ export default function App() {
 
   const generatedContentRef = useRef(null);
 
+  useEffect(() => {
+    GA.initialize('G-LFMLTQ2HKP', { debug: true });
+  }, []);
+
   return (
     <>
       <GlobalStyle />
@@ -117,11 +122,24 @@ export default function App() {
               maxLength={22}
               type="text"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) => {
+                setTitle(e.target.value);
+                GA.event({
+                  category: 'edit',
+                  action: 'title_changed',
+                });
+              }}
             />
             <OptionsToggle
               value={titleColor}
-              onChange={setTitleColor}
+              onChange={(color) => {
+                setTitleColor(color);
+                GA.event({
+                  category: 'edit',
+                  action: 'title_color_changed',
+                  value: color,
+                });
+              }}
               options={[
                 {
                   value: '#000000',
