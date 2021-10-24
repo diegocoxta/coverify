@@ -36,7 +36,7 @@ const Header = styled.h1`
   margin: 0;
   padding: 0;
   font-size: 56px;
-  margin-top: 50px;
+  margin-top: 20px;
   padding: 20px 20px 0;
   font-weight: 400;
 `;
@@ -110,13 +110,11 @@ export default function App() {
       <Container>
         <Form>
           <Header>covermix.</Header>
-          <SubHeader>Create spotify-inspired covers for your personal playlists.</SubHeader>
-          <Fieldset>
-            <Input maxLength={22} type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-          </Fieldset>
+          <SubHeader>Create Spotify-inspired covers for your personal playlists.</SubHeader>
+
           <Fieldset>
             <OptionsToggle
-              label="Choose your favorite cover model"
+              label="Cover Template"
               value={view}
               onChange={setView}
               options={[
@@ -127,17 +125,18 @@ export default function App() {
               ]}
             />
           </Fieldset>
-
           <Fieldset>
-            <ColorPicker color={accentColor} setColor={setAccentColor} />
-          </Fieldset>
-
-          <Fieldset>
-            <ImagePicker image={image} setImage={setImage} />
+            <Input
+              placeholder="Title"
+              maxLength={22}
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
           </Fieldset>
           <Fieldset>
             <OptionsToggle
-              label="Choose the text color"
+              label="Title Color"
               value={titleColor}
               onChange={setTitleColor}
               options={[
@@ -161,8 +160,16 @@ export default function App() {
             />
           </Fieldset>
           <Fieldset>
+            <ColorPicker label="Accent Color" color={accentColor} setColor={setAccentColor} />
+          </Fieldset>
+
+          <Fieldset>
+            <ImagePicker label="Image" image={image} setImage={setImage} />
+          </Fieldset>
+
+          <Fieldset>
             <OptionsToggle
-              label="Choose the Spotify logo color"
+              label="Spotify Logo"
               value={spotifyLogo}
               onChange={setSpotifyLogo}
               options={[
