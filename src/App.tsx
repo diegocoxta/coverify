@@ -96,7 +96,7 @@ const Fieldset = styled.div`
 export default function App(): React.ReactElement {
   const [title, setTitle] = useState<string>('Your playlist name');
   const [titleColor, setTitleColor] = useState<string>('#000000');
-  const [accentColor, setAccentColor] = useState('#8F2A34');
+  const [accentColor, setAccentColor] = useState(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
   const [image, setImage] = useState<File | null | undefined>(null);
   const [spotifyLogo, setSpotifyLogo] = useState('spotifyBlackLogo');
   const [view, setView] = useState<string>('1');
