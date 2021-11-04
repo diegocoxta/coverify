@@ -1,19 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import ViewProps from './ViewProps';
 import DraggableImage from '../components/DraggableImage';
 import BlankImage from '../components/BlankImage';
 
 const Header = styled.div`
   height: 80px;
   width: 230px;
-  margin: 30px 0 15px;
+  margin: 40px 0 15px;
   word-break: break-word;
   text-align: center;
   overflow: hidden;
 `;
 
-const Title = styled.p`
+const Title = styled.p<{ color: ViewProps['titleColor'] }>`
   font-style: normal;
   font-weight: bold;
   font-size: 38px;
@@ -24,11 +25,11 @@ const Title = styled.p`
 `;
 
 const Image = styled(BlankImage)`
-  width: 340px;
-  height: 215px;
+  width: 310px;
+  height: 190px;
 `;
 
-export default function Model4(props) {
+export default function Model1(props: ViewProps): React.ReactElement {
   return (
     <>
       <Header>

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { blank } from '../../../assets';
+import assets from '../../../assets';
 
 export default styled.div`
   overflow: hidden;
-  background: #fff url(${blank});
+  background: #fff url(${assets.blank});
 `;

@@ -17,10 +17,16 @@ const PrivacyDisclaimer = styled.p`
   text-align: center;
 `;
 
-export default function ImagePicker(props) {
-  const inputRef = useRef(null);
+interface ImagePickerProps {
+  label: string;
+  setImage: (file?: File | null) => void;
+  image?: File | null;
+}
 
-  const changeImage = (file) => {
+export default function ImagePicker(props: ImagePickerProps): React.ReactElement {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const changeImage = (file?: File | null) => {
     if (!file) {
       return false;
     }
@@ -31,10 +37,10 @@ export default function ImagePicker(props) {
   return (
     <Container>
       {props.label && <Label>{props.label}</Label>}
-      <Button onClick={() => inputRef.current.click()}>
+      <Button onClick={() => inputRef.current?.click()}>
         {props.image ? 'Choose another image' : 'Choose an image'}
       </Button>
-      <HiddenInput ref={inputRef} type="file" onChange={(e) => changeImage(e.target.files[0])} />
+      <HiddenInput ref={inputRef} type="file" onChange={(e) => changeImage(e?.target?.files?.item(0))} />
       <PrivacyDisclaimer>
         The image will be processed in your browser and it should never be collected, or stored by me.
       </PrivacyDisclaimer>
