@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import ViewProps from './ViewProps';
 import DraggableImage from '../components/DraggableImage';
 import BlankImage from '../components/BlankImage';
 
@@ -13,7 +14,7 @@ const Header = styled.div`
   overflow: hidden;
 `;
 
-const SubTitle = styled.p`
+const SubTitle = styled.p<{ color: ViewProps['titleColor'] }>`
   font-weight: bold;
   margin: 0 0 5px 0;
   text-transform: uppercase;
@@ -21,7 +22,7 @@ const SubTitle = styled.p`
   font-size: 14px;
 `;
 
-const Title = styled.p`
+const Title = styled.p<{ color: ViewProps['titleColor'] }>`
   font-style: normal;
   font-weight: bold;
   font-size: 28px;
@@ -36,7 +37,7 @@ const Image = styled(BlankImage)`
   height: 210px;
 `;
 
-export default function Model2(props) {
+export default function Model2(props: ViewProps): React.ReactElement {
   return (
     <>
       <Header>

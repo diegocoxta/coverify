@@ -23,7 +23,13 @@ const Cover = styled.div`
   bottom: 0;
 `;
 
-export default function ColorPicker(props) {
+interface ColorPickerProps {
+  label?: string;
+  color: string;
+  setColor: (color: string) => void;
+}
+
+export default function ColorPicker(props: ColorPickerProps): React.ReactElement {
   const [colorPicker, setColorPicker] = useState(false);
 
   return (

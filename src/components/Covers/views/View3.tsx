@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import ViewProps from './ViewProps';
 import DraggableImage from '../components/DraggableImage';
 import BlankImage from '../components/BlankImage';
-import * as assets from '../../../assets';
+import assets from '../../../assets';
 
-const Title = styled.p`
+const Title = styled.p<{ color: ViewProps['color']; borderColor: ViewProps['color'] }>`
   font-style: normal;
   font-weight: bold;
   font-size: 28px;
@@ -19,8 +20,8 @@ const Title = styled.p`
   border-left: 10px solid ${(props) => props.borderColor};
 `;
 
-const SpotifyLogo = styled.div`
-  background-image: url(${(props) => assets[props.logo]});
+const SpotifyLogo = styled.div<{ logo: ViewProps['logo'] }>`
+  background-image: url(${(props) => props.logo && assets[props.logo]});
   background-repeat: no-repeat;
   background-size: 30px;
   width: 30px;
@@ -31,14 +32,14 @@ const SpotifyLogo = styled.div`
   left: 20px;
 `;
 
-const Image = styled(BlankImage)`
+const Image = styled(BlankImage)<{ color: ViewProps['titleColor'] }>`
   width: 340px;
   height: 330px;
   border-bottom: 10px solid ${(props) => props.color};
   position: absolute;
 `;
 
-export default function Model3(props) {
+export default function Model3(props: ViewProps): React.ReactElement {
   return (
     <>
       <SpotifyLogo logo={props.logo} />

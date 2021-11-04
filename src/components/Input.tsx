@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 
 import Label from './Label';
@@ -28,12 +28,13 @@ const Counter = styled.p`
   color: #b5b5b5;
 `;
 
-export default function Input(props) {
+export default function Input(props: InputHTMLAttributes<HTMLInputElement>): React.ReactElement {
+  const { maxLength, value } = props;
   return (
     <Container>
       <Label>{props.placeholder}</Label>
       <Field {...props} />
-      <Counter>{props.maxLength - props.value.length} remaining characters</Counter>
+      <Counter>{maxLength ?? 0 - (value?.toString() ?? '').length} remaining characters</Counter>
     </Container>
   );
 }

@@ -42,7 +42,7 @@ const Icon = styled.span`
   margin-left: 6px;
 `;
 
-export default function Avatar() {
+export default function Avatar(): React.ReactElement {
   return (
     <Container href="https://diegocosta.me">
       <Image src="https://avatars.githubusercontent.com/u/3134422?v=4" />

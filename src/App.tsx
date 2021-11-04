@@ -1,6 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useRef } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+
+import { logCoverDownload, logCoverEdit } from './utils/analytics';
 
 import ColorPicker from './components/ColorPicker';
 import ImagePicker from './components/ImagePicker';
@@ -22,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const GradientBackground = styled.div`
+const GradientBackground = styled.div<{ color: string }>`
   background-color: ${(props) => props.color};
   background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0, #121212 100%);
   height: 332px;
@@ -92,13 +93,13 @@ const Fieldset = styled.div`
   border-radius: 10px;
 `;
 
-export default function App() {
-  const [title, setTitle] = useState('Your playlist name');
-  const [titleColor, setTitleColor] = useState('#000000');
+export default function App(): React.ReactElement {
+  const [title, setTitle] = useState<string>('Your playlist name');
+  const [titleColor, setTitleColor] = useState<string>('#000000');
   const [accentColor, setAccentColor] = useState('#8F2A34');
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState<File | null | undefined>(null);
   const [spotifyLogo, setSpotifyLogo] = useState('spotifyBlackLogo');
-  const [view, setView] = useState(1);
+  const [view, setView] = useState<string>('1');
 
   const generatedContentRef = useRef(null);
 
@@ -119,37 +120,23 @@ export default function App() {
               value={title}
               onChange={(e) => {
                 setTitle(e.target.value);
-                window.gtag('event', 'cover_edit', {
-                  action: 'title_changed',
-                  value: e.target.value,
-                });
+                logCoverEdit('title_changed', e.target.value);
               }}
             />
             <OptionsToggle
               value={titleColor}
               onChange={(color) => {
                 setTitleColor(color);
-                window.gtag('event', 'cover_edit', {
-                  action: 'title_color_changed',
-                  value: color,
-                });
+                logCoverEdit('title_color_changed', color);
               }}
               options={[
                 {
                   value: '#000000',
-                  label: (
-                    <>
-                      <ColorPreview color="#000000" /> Black
-                    </>
-                  ),
+                  label: <ColorPreview color="#000000" label="Black" />,
                 },
                 {
                   value: '#ffffff',
-                  label: (
-                    <>
-                      <ColorPreview color="#ffffff" /> White
-                    </>
-                  ),
+                  label: <ColorPreview color="#ffffff" label="White" />,
                 },
               ]}
             />
@@ -160,9 +147,7 @@ export default function App() {
               image={image}
               setImage={(image) => {
                 setImage(image);
-                window.gtag('event', 'cover_edit', {
-                  action: 'image_changed',
-                });
+                logCoverEdit('image_changed');
               }}
             />
           </Fieldset>
@@ -171,27 +156,21 @@ export default function App() {
               label="Template"
               value={view}
               onChange={(view) => {
-                window.gtag('event', 'cover_edit', {
-                  action: 'view_changed',
-                  value: view,
-                });
                 setView(view);
+                logCoverEdit('view_changed', view);
               }}
               options={[
-                { value: 1, label: '#1' },
-                { value: 2, label: '#2' },
-                { value: 3, label: '#3' },
-                { value: 4, label: '#4' },
+                { value: '1', label: '#1' },
+                { value: '2', label: '#2' },
+                { value: '3', label: '#3' },
+                { value: '4', label: '#4' },
               ]}
             />
             <ColorPicker
               color={accentColor}
               setColor={(color) => {
                 setAccentColor(color);
-                window.gtag('event', 'cover_edit', {
-                  action: 'color_changed',
-                  value: color,
-                });
+                logCoverEdit('color_changed', color);
               }}
             />
           </Fieldset>
@@ -201,27 +180,16 @@ export default function App() {
               value={spotifyLogo}
               onChange={(logo) => {
                 setSpotifyLogo(logo);
-                window.gtag('event', 'cover_edit', {
-                  action: 'spotify_logo_changed',
-                  value: logo,
-                });
+                logCoverEdit('spotify_logo_changed', logo);
               }}
               options={[
                 {
                   value: 'spotifyBlackLogo',
-                  label: (
-                    <>
-                      <ColorPreview color="#000000" /> Black
-                    </>
-                  ),
+                  label: <ColorPreview color="#000000" label="Black" />,
                 },
                 {
                   value: 'spotifyWhiteLogo',
-                  label: (
-                    <>
-                      <ColorPreview color="#ffffff" /> White
-                    </>
-                  ),
+                  label: <ColorPreview color="#ffffff" label="White" />,
                 },
                 { value: '', label: 'None' },
               ]}
@@ -238,12 +206,7 @@ export default function App() {
             image={image}
             view={view}
           />
-          <DownloadButton
-            onDownload={() => {
-              window.gtag('event', 'cover_download');
-            }}
-            content={generatedContentRef.current}
-          />
+          <DownloadButton onDownload={() => logCoverDownload()} content={generatedContentRef.current} />
         </Preview>
       </Container>
       <Footer />

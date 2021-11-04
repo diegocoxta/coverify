@@ -25,11 +25,16 @@ const CustomButton = styled(Button)`
   }
 `;
 
-export default function DownloadBUtton(props) {
+interface DownloadButtonProps {
+  content: Node | null;
+  onDownload: () => void;
+}
+
+export default function DownloadButton(props: DownloadButtonProps): React.ReactElement {
   function download() {
     domtoimage.toPng(props.content, { quality: 1, scale: 3 }).then(() => {
       // call this method twice as a temporary fix to iOS Sarafi limitations
-      domtoimage.toPng(props.content, { quality: 1, scale: 3 }).then((dataUrl) => {
+      domtoimage.toPng(props.content, { quality: 1, scale: 3 }).then((dataUrl: string) => {
         FileSaver.saveAs(dataUrl, 'cover.png');
         props.onDownload && props.onDownload();
       });

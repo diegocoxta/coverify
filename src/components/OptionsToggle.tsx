@@ -11,7 +11,7 @@ const Options = styled.div`
   display: flex;
 `;
 
-const Option = styled.button`
+const Option = styled.button<{ selected: boolean }>`
   display: flex;
   padding: 10px;
   border-radius: 30px;
@@ -30,10 +30,22 @@ const Option = styled.button`
   ${(props) => props.selected && `background: rgba(255, 255, 255, 0.1);`}
 `;
 
-export default function OptionsToggle(props) {
+interface OptionsToggleItemProps {
+  value: string;
+  label: string | React.ReactElement;
+}
+
+interface OptionsToggleProps {
+  label?: string;
+  options: OptionsToggleItemProps[];
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export default function OptionsToggle(props: OptionsToggleProps): React.ReactElement {
   return (
     <Container>
-      <Label>{props.label}</Label>
+      {props.label && <Label>{props.label}</Label>}
       <Options>
         {props.options.map((option, index) => (
           <Option selected={option.value === props.value} onClick={() => props.onChange(option.value)} key={index}>
