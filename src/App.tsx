@@ -26,7 +26,11 @@ export default function App(): React.ReactElement {
     <>
       <Layout.GlobalStyle />
       <Layout.GradientBackground color={accentColor} />
-      <Avatar />
+      <Avatar
+        image="https://avatars.githubusercontent.com/u/3134422?s=60&v=4"
+        label="diegocosta.me"
+        link="https://diegocosta.me"
+      />
       <Layout.Header>capinha.</Layout.Header>
       <Layout.SubHeader>Create Spotify-inspired covers for your personal playlists.</Layout.SubHeader>
       <Layout.Container>
@@ -43,7 +47,7 @@ export default function App(): React.ReactElement {
               }}
             />
             <OptionsToggle
-              value={titleColor}
+              defaultValue={titleColor}
               onChange={(color) => {
                 setTitleColor(color);
                 logCoverEdit('title_color_changed', color);
@@ -73,7 +77,7 @@ export default function App(): React.ReactElement {
           <Layout.Fieldset>
             <OptionsToggle
               label="Template"
-              value={view}
+              defaultValue={view}
               onChange={(view) => {
                 setView(view);
                 logCoverEdit('view_changed', view);
@@ -96,7 +100,7 @@ export default function App(): React.ReactElement {
           <Layout.Fieldset>
             <OptionsToggle
               label="Spotify Icon"
-              value={spotifyLogo}
+              defaultValue={spotifyLogo}
               onChange={(logo) => {
                 setSpotifyLogo(logo);
                 logCoverEdit('spotify_logo_changed', logo);

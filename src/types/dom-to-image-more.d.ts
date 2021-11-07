@@ -1,4 +1,4 @@
 declare module 'dom-to-image-more' {
-  function toPng(content: any, options: any);
+  function toPng(content: unknown, options: unknown);
   export default { toPng };
 }

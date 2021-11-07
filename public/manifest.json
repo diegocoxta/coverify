@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "capinha.",
+  "short_name": "capinha.",
+  "description": "Create Spotify-inspired covers for your personal playlists.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#00BE0D",
+  "background_color": "#121212"
 }
