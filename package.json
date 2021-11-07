@@ -10,7 +10,8 @@
     "react-dom": "^17.0.2",
     "react-draggable": "^4.4.4",
     "react-scripts": "4.0.3",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "web-vitals": "^2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -69,8 +70,8 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js}": [
-      "yarn lint",
       "yarn prettier",
+      "yarn lint",
       "stylelint"
     ]
   }

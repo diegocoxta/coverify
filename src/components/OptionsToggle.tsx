@@ -30,15 +30,13 @@ const Option = styled.button<{ selected: boolean }>`
   ${(props) => props.selected && `background: rgba(255, 255, 255, 0.1);`}
 `;
 
-interface OptionsToggleItemProps {
-  value: string;
-  label: string | React.ReactElement;
-}
-
 interface OptionsToggleProps {
   label?: string;
-  options: OptionsToggleItemProps[];
-  value: string;
+  options: Array<{
+    value: string;
+    label: string | React.ReactElement;
+  }>;
+  defaultValue: string;
   onChange: (value: string) => void;
 }
 
@@ -48,7 +46,11 @@ export default function OptionsToggle(props: OptionsToggleProps): React.ReactEle
       {props.label && <Label>{props.label}</Label>}
       <Options>
         {props.options.map((option, index) => (
-          <Option selected={option.value === props.value} onClick={() => props.onChange(option.value)} key={index}>
+          <Option
+            selected={option.value === props.defaultValue}
+            onClick={() => props.onChange(option.value)}
+            key={index}
+          >
             {option.label}
           </Option>
         ))}
