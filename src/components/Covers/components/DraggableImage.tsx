@@ -7,14 +7,14 @@ const Image = styled.img`
 `;
 
 interface DraggableImageProps {
-  source?: File | null;
+  source?: string;
   width: number;
 }
 
 export default function DraggableImage({ source, width }: DraggableImageProps): React.ReactElement {
   return (
     <Draggable allowAnyClick={true} axis="y" handle=".handle" defaultPosition={{ x: 0, y: 0 }} grid={[1, 1]} scale={1}>
-      <Image className="handle" width={width} src={URL.createObjectURL(source)} />
+      <Image className="handle" width={width} src={source} />
     </Draggable>
   );
 }

@@ -1,0 +1,20 @@
+{
+  "page.description": "Create Spotify-inspired covers for your personal playlists.",
+  "form.title.title": "Title",
+  "form.title.placeholder": "Your playlist name",
+  "form.title.remaining_characters": "remaining characters",
+  "form.title.color_black": "Black",
+  "form.title.color_white": "White",
+  "form.image.title": "Image",
+  "form.image.button": "Choose an Image",
+  "form.image.button_active": "Choose another Image",
+  "form.image.privacy_discraymer": "The image will be processed in your browser and it should never be collected, or stored by me",
+  "form.template.title": "Template",
+  "form.template.color_picker": "Choose an Color",
+  "form.spotify.title": "Spotify Icon",
+  "form.spotify.icon_black": "Black",
+  "form.spotify.icon_white": "White",
+  "form.spotify.icon_none": "None",
+  "preview.tip": "Tip: Drag the image to position adjustment.",
+  "preview.download": "Download Image"
+}

@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import DraggableImage from 'src/components/Covers/components/DraggableImage';
+import BlankImage from 'src/components/Covers/components/BlankImage';
+
 import ViewProps from './ViewProps';
-import DraggableImage from '../components/DraggableImage';
-import BlankImage from '../components/BlankImage';
 
 const Header = styled.div`
   height: 80px;

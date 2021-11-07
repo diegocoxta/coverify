@@ -1,6 +1,5 @@
 package.json
 package-lock.json
-public
 build
 node_modules
 yarn.lock

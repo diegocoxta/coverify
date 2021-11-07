@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import { reportWebVitals } from './utils/analytics';
+import { reportWebVitals } from 'src/utils/analytics';
+import i18n from 'src/utils/i18n';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import LoadingPage from 'src/pages/Loading';
+import HomePage from 'src/pages/Home';
+
+i18n();
+
+ReactDOM.render(
+  <Suspense fallback={<LoadingPage />}>
+    <HomePage />
+  </Suspense>,
+  document.getElementById('root')
+);
 
 reportWebVitals();

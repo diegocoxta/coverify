@@ -1,17 +1,6 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: #121212;
-    background-size: 100% 200px;
-    background-repeat: no-repeat;
-    font-family: Arial, sans-serif;
-  }
-`;
-
-export const GradientBackground = styled.div<{ color: string }>`
+export const Background = styled.div<{ color: string }>`
   background-color: ${(props) => props.color};
   background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0, #121212 100%);
   height: 332px;
@@ -19,6 +8,49 @@ export const GradientBackground = styled.div<{ color: string }>`
   position: absolute;
   width: 100%;
   z-index: -1;
+`;
+
+export const Avatar = styled.a`
+  background: #060707;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  text-decoration: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 148px;
+  transition: all 0.2s;
+
+  :hover {
+    background: #1e1e1e;
+  }
+
+  @media (min-width: 750px) {
+    top: 20px;
+    right: 40px;
+  }
+`;
+
+export const AvatarPhoto = styled.img`
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  margin-right: 10px;
+`;
+
+export const AvatarName = styled.span`
+  color: #fff;
+  font-size: 13px;
+`;
+
+export const AvatarArrownDown = styled.span.attrs({
+  children: '▼',
+})`
+  color: #fff;
+  font-size: 10px;
+  margin-left: 6px;
 `;
 
 export const Header = styled.h1`
@@ -60,23 +92,4 @@ export const Footer = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-`;
-
-export const Form = styled.div`
-  width: 100%;
-`;
-
-export const Preview = styled.div`
-  padding: 0 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const Fieldset = styled.div`
-  margin: 0px 10px 20px;
-  padding: 20px;
-  box-sizing: border-box;
-  background: #181818;
-  border-radius: 10px;
 `;
