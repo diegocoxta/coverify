@@ -27,7 +27,7 @@ export default function App(): React.ReactElement {
       <Layout.GlobalStyle />
       <Layout.GradientBackground color={accentColor} />
       <Avatar />
-      <Layout.Header>covermix.</Layout.Header>
+      <Layout.Header>capinha.</Layout.Header>
       <Layout.SubHeader>Create Spotify-inspired covers for your personal playlists.</Layout.SubHeader>
       <Layout.Container>
         <Layout.Form>
