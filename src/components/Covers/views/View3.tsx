@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ViewProps from './ViewProps';
-import DraggableImage from '../components/DraggableImage';
-import BlankImage from '../components/BlankImage';
-import assets from '../../../assets';
+import assets from 'src/assets';
+import DraggableImage from 'src/components/Covers/components/DraggableImage';
+import BlankImage from 'src/components/Covers/components/BlankImage';
 
-const Title = styled.p<{ color: ViewProps['color']; borderColor: ViewProps['color'] }>`
+import ViewProps from './ViewProps';
+
+const Title = styled.p<{ color: ViewProps['titleColor']; borderColor: ViewProps['accentColor'] }>`
   font-style: normal;
   font-weight: bold;
   font-size: 28px;
@@ -20,7 +21,7 @@ const Title = styled.p<{ color: ViewProps['color']; borderColor: ViewProps['colo
   border-left: 10px solid ${(props) => props.borderColor};
 `;
 
-const SpotifyLogo = styled.div<{ logo: ViewProps['logo'] }>`
+const SpotifyLogo = styled.div<{ logo: ViewProps['accentColor'] }>`
   background-image: url(${(props) => props.logo && assets[props.logo]});
   background-repeat: no-repeat;
   background-size: 30px;
@@ -32,7 +33,7 @@ const SpotifyLogo = styled.div<{ logo: ViewProps['logo'] }>`
   left: 20px;
 `;
 
-const Image = styled(BlankImage)<{ color: ViewProps['titleColor'] }>`
+const Image = styled(BlankImage)<{ color: ViewProps['accentColor'] }>`
   width: 340px;
   height: 330px;
   border-bottom: 10px solid ${(props) => props.color};
@@ -42,10 +43,10 @@ const Image = styled(BlankImage)<{ color: ViewProps['titleColor'] }>`
 export default function Model3(props: ViewProps): React.ReactElement {
   return (
     <>
-      <SpotifyLogo logo={props.logo} />
-      <Image color={props.color}>
+      <SpotifyLogo logo={props.spotifyLogo} />
+      <Image color={props.accentColor}>
         {props.image && <DraggableImage source={props.image} width={360} />}
-        <Title color={props.titleColor} borderColor={props.color}>
+        <Title color={props.titleColor} borderColor={props.accentColor}>
           {props.title}
         </Title>
       </Image>

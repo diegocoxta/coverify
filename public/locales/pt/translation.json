@@ -1,0 +1,20 @@
+{
+  "page.description": "Crie capinhas inspiradas no Spotify para suas playlists pessoais.",
+  "form.title.title": "Título",
+  "form.title.placeholder": "Nome da playlist",
+  "form.title.remaining_characters": "caracteres restantes",
+  "form.title.color_black": "Preto",
+  "form.title.color_white": "Branco",
+  "form.image.title": "Imagem",
+  "form.image.button": "Escolha uma imagem",
+  "form.image.button_active": "Escolha outra image",
+  "form.image.privacy_discraymer": "A imagem será processada em seu navegador e nunca será coletada ou armazenada por mim",
+  "form.template.title": "Modelo",
+  "form.template.color_picker": "Escolha uma cor",
+  "form.spotify.title": "Ícone do Spotify",
+  "form.spotify.icon_black": "Preto",
+  "form.spotify.icon_white": "Branco",
+  "form.spotify.icon_none": "Nenhum",
+  "preview.tip": "Dica: Arraste a imagem para ajustar sua posição.",
+  "preview.download": "Baixar imagem"
+}

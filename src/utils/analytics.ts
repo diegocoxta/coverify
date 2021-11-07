@@ -1,4 +1,13 @@
-export function logCoverEdit(action: string, value?: string): void {
+export enum LogCoverEditEvent {
+  title_changed = 'title_changed',
+  title_color_changed = 'title_color_changed',
+  color_changed = 'color_changed',
+  image_changed = 'image_changed',
+  spotify_logo_changed = 'spotify_logo_changed',
+  view_changed = 'view_changed',
+}
+
+export function logCoverEdit(action: LogCoverEditEvent, value?: string): void {
   window.gtag('event', 'cover_edit', {
     action,
     value,

@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import assets from '../../assets';
+import assets from 'src/assets';
+import { usei18n } from 'src/utils/i18n';
 
-import ViewProps from './views/ViewProps';
-import View1 from './views/View1';
-import View2 from './views/View2';
-import View3 from './views/View3';
-import View4 from './views/View4';
+import ViewProps from 'src/components/Covers/views/ViewProps';
+import View1 from 'src/components/Covers/views/View1';
+import View2 from 'src/components/Covers/views/View2';
+import View3 from 'src/components/Covers/views/View3';
+import View4 from 'src/components/Covers/views/View4';
 
 const Container = styled.div``;
 
-const Cover = styled.div<{ color?: string; logo?: string }>`
+const Cover = styled.div<{ color?: ViewProps['accentColor']; logo?: ViewProps['spotifyLogo'] }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,10 +35,11 @@ const Disclaimer = styled.p`
 
 interface CoverProps extends ViewProps {
   innerRef: React.RefObject<HTMLDivElement>;
-  view: string;
 }
 
 export default function Covers(props: CoverProps): React.ReactElement {
+  const i18n = usei18n();
+
   const renderViews = (view: string) => {
     switch (view) {
       case '4':
@@ -54,10 +56,10 @@ export default function Covers(props: CoverProps): React.ReactElement {
 
   return (
     <Container>
-      <Cover ref={props.innerRef} color={props.color} logo={props.logo}>
+      <Cover ref={props.innerRef} color={props.accentColor} logo={props.spotifyLogo}>
         {renderViews(props.view)}
       </Cover>
-      <Disclaimer>Tip: Drag the image to position adjustment.</Disclaimer>
+      <Disclaimer>{i18n.getTranslationFor('preview.tip')}</Disclaimer>
     </Container>
   );
 }
