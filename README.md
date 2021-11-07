@@ -1,6 +1,6 @@
 # capinha.
 
-Create Spotify-inspired covers for your personal playlists.
+Create Spotify-inspired covers for your personal playlists. [DEMO](https://capinha.diegocosta.me/)
 
 ## 🖥️ Tech Stack
 
