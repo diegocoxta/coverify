@@ -3,6 +3,9 @@
 Create Spotify-inspired covers for your personal playlists.
 [DEMO](https://capinha.diegocosta.me/)
 
+[![Application screenshoot](https://user-images.githubusercontent.com/3134422/140641645-0d3ea9fa-dac7-4763-a38b-caebc8adaa20.png)](https://capinha.diegocosta.me/)
+
+
 ## 🖥️ Tech Stack
 
 - Build with Gatsby w/ TypeScript and styled-components.
