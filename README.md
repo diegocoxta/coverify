@@ -1,11 +1,13 @@
 # capinha.
 
 Create Spotify-inspired covers for your personal playlists.
+[DEMO](https://capinha.diegocosta.me/)
 
 ## 🖥️ Tech Stack
 
 - Build with Gatsby w/ TypeScript and styled-components.
-- With ESLint, Prettier, stylelint, Husky, lint-staged and [much more](package.json).
+- Using some awesome dependencies like dom-to-image-more, file-saver, react-color and react-draggable.
+- Also, with ESLint, Prettier, stylelint, Husky, lint-staged and [much more](package.json).
 - Hosted on Github Pages with [Github Actions](.github/workflows/main.yml).
 
 ## :keyboard: Developing
