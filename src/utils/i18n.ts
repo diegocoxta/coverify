@@ -3,6 +3,8 @@ import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next, useTranslation } from 'react-i18next';
 
+const supportedLngs = ['en', 'pt', 'es'];
+
 export default function i18n() {
   return i18next
     .use(Backend)
@@ -10,6 +12,7 @@ export default function i18n() {
     .use(initReactI18next)
     .init({
       fallbackLng: 'en',
+      supportedLngs,
       debug: true,
       interpolation: {
         escapeValue: false,
@@ -32,8 +35,8 @@ export function usei18n() {
     return context.language;
   }
 
-  function getAllTranslations(): readonly string[] {
-    return context.languages;
+  function getAllTranslations(): string[] {
+    return supportedLngs;
   }
 
   return { getTranslationFor, changeTranslationTo, getCurrentTranslation, getAllTranslations };

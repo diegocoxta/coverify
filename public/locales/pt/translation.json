@@ -1,4 +1,7 @@
 {
+  "languages.en": "Inglês",
+  "languages.pt": "Português",
+  "languages.es": "Espanhol",
   "page.description": "Crie capinhas inspiradas no Spotify para suas playlists pessoais.",
   "form.title.title": "Título",
   "form.title.placeholder": "Nome da playlist",
@@ -16,5 +19,6 @@
   "form.spotify.icon_white": "Branco",
   "form.spotify.icon_none": "Nenhum",
   "preview.tip": "Dica: Arraste a imagem para ajustar sua posição.",
-  "preview.download": "Baixar imagem"
+  "preview.download": "Baixar imagem",
+  "footer.sourceCode": "código fonte"
 }

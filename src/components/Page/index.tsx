@@ -28,7 +28,7 @@ export default function Page(props: PageProps): React.ReactElement {
     <>
       <GlobalStyle />
       <Background color={props.accentColor} />
-      <Avatar href="https://diegocosta.me">
+      <Avatar href="https://diegocosta.me?utm_medium=capinha&utm_campaign=capinha-avatar&utm_source=capinha">
         <AvatarPhoto alt="diegocosta.me" src="https://avatars.githubusercontent.com/u/3134422?s=60&v=4" />
         <AvatarName>diegocosta.me</AvatarName>
         <AvatarArrownDown />
@@ -36,7 +36,10 @@ export default function Page(props: PageProps): React.ReactElement {
       <Header>capinha.</Header>
       <SubHeader>{i18n.getTranslationFor('page.description')}</SubHeader>
       <Container>{props.children}</Container>
-      <Footer />
+      <Footer>
+        CC-BY {new Date().getFullYear()} •
+        <a href="https://github.com/diegocosta/capinha">{i18n.getTranslationFor('footer.sourceCode')}</a>
+      </Footer>
     </>
   );
 }
