@@ -18,10 +18,7 @@ import { Form, Fieldset, Preview, DownloadButton } from './styled';
 export default function HomePage(): React.ReactElement {
   const i18n = usei18n();
   const previewRef = useRef(null);
-  const [state, dispatch] = useReducer(formReducer, {
-    ...formState,
-    title: i18n.getTranslationFor('form.title.placeholder'),
-  });
+  const [state, dispatch] = useReducer(formReducer, formState);
 
   const onDownloadClick = () => {
     // call this method two times as a temporary fix to iOS Sarafi limitations
@@ -134,7 +131,11 @@ export default function HomePage(): React.ReactElement {
         </Fieldset>
       </Form>
       <Preview>
-        <Covers {...state} innerRef={previewRef} />
+        <Covers
+          {...state}
+          title={state.title !== '' ? state.title : i18n.getTranslationFor('form.title.placeholder')}
+          innerRef={previewRef}
+        />
         <DownloadButton disabled={!previewRef.current} onClick={onDownloadClick}>
           {i18n.getTranslationFor('preview.download')}
         </DownloadButton>

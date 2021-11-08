@@ -84,12 +84,18 @@ export const Container = styled.div`
   }
 `;
 
-export const Footer = styled.div`
-  border-bottom: 20px solid #25d34e;
-  border-top: 1px solid #1e1e1e;
-  background: #131313;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+export const Translations = styled.div`
+  text-align: center;
+  margin: 20px 0;
+`;
+
+export const Footer = styled(Container)`
+  color: #a4a4a4;
+  padding-left: 30px;
+
+  a {
+    padding-left: 5px;
+    color: #a4a4a4;
+    text-decoration: none;
+  }
 `;
