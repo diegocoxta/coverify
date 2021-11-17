@@ -1,0 +1,34 @@
+name: Update project dependencies
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Getting outdated dependencies
+        id: outdated_dependencies
+        run: |
+          set +e
+          echo "OUTDATED_DEPENDENCIES<<EOF" >> $GITHUB_ENV
+          yarn outdated --json | npx yarn-outdated-formatter >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          set -e
+      - name: Updating dependencies to the latest version
+        run: yarn upgrade --latest
+      - name: Creating pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(dependencies): keeping dependencies updated to the latest version automatically"
+          branch: auto_outdated_dependencies
+          delete-branch: true
+          title: '[Auto] Update project dependencies'
+          base: main
+          body: ${{ env.OUTDATED_DEPENDENCIES }}
