@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "dom-to-image-more": "file:./packages/dom-to-image-more",
+    "dom-to-image-more": "^2.9.5",
     "file-saver": "^2.0.5",
     "i18next": "^21.6.0",
     "i18next-browser-languagedetector": "^6.1.2",
