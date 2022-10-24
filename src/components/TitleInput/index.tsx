@@ -22,7 +22,7 @@ export default function TitleInput(props: InputHTMLAttributes<HTMLInputElement>)
       <Label>{i18n.getTranslationFor('form.title.title')}</Label>
       <Field {...customProps} />
       <RemainingCharacters>
-        {customProps.maxLength ?? 0 - (value?.toString() ?? '').length}{' '}
+        {(customProps.maxLength ?? 0) - (value?.toString() ?? '').length}{' '}
         {i18n.getTranslationFor('form.title.remaining_characters')}
       </RemainingCharacters>
     </Container>
