@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "dom-to-image-more": "3.1.1",
+    "dom-to-image-more": "3.1.4",
     "file-saver": "^2.0.5",
-    "i18next": "22.4.13",
+    "i18next": "22.4.15",
     "i18next-browser-languagedetector": "7.0.1",
     "i18next-http-backend": "2.2.0",
     "react": "^18.2.0",
@@ -15,7 +15,7 @@
     "react-i18next": "12.2.0",
     "react-scripts": "5.0.1",
     "styled-components": "5.3.9",
-    "web-vitals": "3.3.0"
+    "web-vitals": "3.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,26 +46,26 @@
     "@types/dom-to-image": "^2.6.4",
     "@types/file-saver": "^2.0.5",
     "@types/gtag.js": "0.0.12",
-    "@types/react": "18.0.28",
+    "@types/react": "18.0.37",
     "@types/react-color": "^3.0.6",
     "@types/react-dom": "^18.0.11",
     "@types/styled-components": "5.1.26",
-    "@typescript-eslint/eslint-plugin": "5.56.0",
-    "@typescript-eslint/parser": "5.56.0",
+    "@typescript-eslint/eslint-plugin": "5.59.0",
+    "@typescript-eslint/parser": "5.59.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "7.32.2",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.0",
+    "lint-staged": "^13.2.1",
     "postcss-syntax": "^0.36.2",
     "prettier": "^2.8.7",
-    "stylelint": "15.3.0",
-    "stylelint-config-recommended": "11.0.0",
+    "stylelint": "15.5.0",
+    "stylelint-config-recommended": "12.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0",
-    "typescript": "5.0.2"
+    "typescript": "5.0.4"
   },
   "husky": {
     "hooks": {
