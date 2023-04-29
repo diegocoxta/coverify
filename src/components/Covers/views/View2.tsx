@@ -31,6 +31,7 @@ const Title = styled.p<{ color: ViewProps['titleColor'] }>`
   margin: 0;
   letter-spacing: -0.04em;
   color: ${(props) => props.color};
+  font-family: Arial, sans-serif;
 `;
 
 const Image = styled(BlankImage)`
