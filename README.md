@@ -1,6 +1,7 @@
 # coverify.
 
-Create Spotify-inspired covers for your personal playlists.
+Transform your music playlists into stunning works of art! `coverify.` lets you create Spotify-inspired covers for your personal playlists completely free and has no annoying ads to interrupt your creative flow. 
+
 [DEMO](https://coverify.diegocosta.me/)
 
 [![Application screenshoot](https://user-images.githubusercontent.com/3134422/140641645-0d3ea9fa-dac7-4763-a38b-caebc8adaa20.png)](https://coverify.diegocosta.me/)
