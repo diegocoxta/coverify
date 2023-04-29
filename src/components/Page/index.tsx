@@ -43,7 +43,7 @@ export default function Page(props: PageProps): React.ReactElement {
       <Container>{props.children}</Container>
       <Footer>
         CC-BY {new Date().getFullYear()} •
-        <a href="https://github.com/diegocosta/coverify">{i18n.getTranslationFor('footer.sourceCode')}</a>
+        <a href="https://github.com/diegocoxta/coverify.">{i18n.getTranslationFor('footer.sourceCode')}</a>
       </Footer>
     </>
   );
