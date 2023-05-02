@@ -33,6 +33,16 @@ export default function HomePage(): React.ReactElement {
 
   return (
     <Page accentColor={state.accentColor}>
+      <Preview>
+        <Covers
+          {...state}
+          title={state.title !== '' ? state.title : i18n.getTranslationFor('form.title.placeholder')}
+          innerRef={previewRef}
+        />
+        <DownloadButton disabled={!previewRef.current} onClick={onDownloadClick}>
+          {i18n.getTranslationFor('preview.download')}
+        </DownloadButton>
+      </Preview>
       <Form>
         <Fieldset>
           <TitleInput
@@ -130,16 +140,6 @@ export default function HomePage(): React.ReactElement {
           />
         </Fieldset>
       </Form>
-      <Preview>
-        <Covers
-          {...state}
-          title={state.title !== '' ? state.title : i18n.getTranslationFor('form.title.placeholder')}
-          innerRef={previewRef}
-        />
-        <DownloadButton disabled={!previewRef.current} onClick={onDownloadClick}>
-          {i18n.getTranslationFor('preview.download')}
-        </DownloadButton>
-      </Preview>
     </Page>
   );
 }

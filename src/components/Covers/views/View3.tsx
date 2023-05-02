@@ -19,6 +19,7 @@ const Title = styled.p<{ color: ViewProps['titleColor']; borderColor: ViewProps[
   position: absolute;
   bottom: 20px;
   border-left: 10px solid ${(props) => props.borderColor};
+  font-family: Arial, sans-serif;
 `;
 
 const SpotifyLogo = styled.div<{ logo: ViewProps['accentColor'] }>`

@@ -2,7 +2,7 @@ name: Update project dependencies
 
 on:
   schedule:
-    - cron: "0 9 * * 5"
+    - cron: '0 9 * * 5'
   workflow_dispatch:
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore(dependencies): keeping dependencies updated to the latest version automatically"
+          commit-message: 'chore(dependencies): keeping dependencies updated to the latest version automatically'
           branch: auto_outdated_dependencies
           delete-branch: true
           title: '[Auto] Update project dependencies'

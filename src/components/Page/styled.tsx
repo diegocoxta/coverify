@@ -17,19 +17,18 @@ export const Avatar = styled.a`
   align-items: center;
   padding: 3px;
   text-decoration: none;
-  position: fixed;
-  top: 10px;
-  right: 10px;
   width: 148px;
   transition: all 0.2s;
+  margin: 20px auto 0px;
 
   :hover {
     background: #1e1e1e;
   }
 
-  @media (min-width: 750px) {
+  @media (min-width: 1400px) {
     top: 20px;
     right: 40px;
+    position: fixed;
   }
 `;
 
@@ -57,9 +56,8 @@ export const Header = styled.h1`
   color: #fff;
   margin: 0;
   font-size: 56px;
-  margin-top: 20px;
   padding: 20px 20px 0;
-  font-weight: 400;
+  font-weight: 900;
   text-align: center;
 `;
 
@@ -67,20 +65,19 @@ export const SubHeader = styled.p`
   color: #a4a4a4;
   padding: 0;
   font-size: 18px;
-  margin: 0 20px 50px;
   text-align: center;
+  margin: 20px 30px;
 `;
 
 export const Container = styled.div`
-  margin: 0 auto;
+  margin: 50px auto 0;
   max-width: 960px;
   border-radius: 10px;
   margin-bottom: 30px;
-  display: flex;
-  flex-direction: column-reverse;
 
   @media (min-width: 750px) {
-    flex-direction: row;
+    display: flex;
+    flex-direction: row-reverse;
   }
 `;
 
@@ -89,7 +86,9 @@ export const Translations = styled.div`
   margin: 20px 0;
 `;
 
-export const Footer = styled(Container)`
+export const Footer = styled.footer`
+  margin: 50px auto;
+  max-width: 960px;
   color: #a4a4a4;
   padding-left: 30px;
 
