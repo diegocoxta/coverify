@@ -1,9 +1,10 @@
-# capinha.
+# coverify.
 
-Create Spotify-inspired covers for your personal playlists.
-[DEMO](https://capinha.diegocosta.me/)
+Transform your music playlists into stunning works of art! `coverify.` lets you create Spotify-inspired covers for your personal playlists completely free and has no annoying ads to interrupt your creative flow.
 
-[![Application screenshoot](https://user-images.githubusercontent.com/3134422/140641645-0d3ea9fa-dac7-4763-a38b-caebc8adaa20.png)](https://capinha.diegocosta.me/)
+[Click here to try](https://coverify.diegocosta.me/) or put `coverify.diegocosta.me` in your favorite browser.
+
+[![Application screenshoot](https://user-images.githubusercontent.com/3134422/140641645-0d3ea9fa-dac7-4763-a38b-caebc8adaa20.png)](https://coverify.diegocosta.me/)
 
 ## :thinking: Motivation
 
@@ -22,7 +23,7 @@ So, I migrated my [Figma templates](https://www.figma.com/file/YQ2fg9I1X6MAhhhZy
 ## :keyboard: Developing
 
 1. [Clone this repo](https://help.github.com/en/articles/cloning-a-repository) with git.
-2. Install dependencies by running `yarn install` within the directory that you cloned (probably `capinha`).
+2. Install dependencies by running `yarn install` within the directory that you cloned (probably `coverify`).
 3. Start the development server with `yarn start`.
 4. Open development site by going to [`http://localhost:3000`](http://localhost:8000) in your browser.
 

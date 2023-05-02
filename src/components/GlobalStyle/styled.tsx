@@ -7,6 +7,6 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #121212;
     background-size: 100% 200px;
     background-repeat: no-repeat;
-    font-family: Arial, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
   }
 `;
