@@ -1,8 +1,8 @@
 import React, { InputHTMLAttributes } from 'react';
 
-import { usei18n } from 'src/utils/i18n';
+import { usei18n } from '~/utils/i18n';
 
-import Label from 'src/components/Label';
+import Label from '~/components/Label';
 
 import { Container, Field, RemainingCharacters } from './styled';
 

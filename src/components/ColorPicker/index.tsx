@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { ChromePicker } from 'react-color';
 
-import { usei18n } from 'src/utils/i18n';
+import { usei18n } from '~/utils/i18n';
 
-import Button from 'src/components/Button';
-import ColorDot from 'src/components/ColorDot';
-import Label from 'src/components/Label';
+import Button from '~/components/Button';
+import ColorDot from '~/components/ColorDot';
+import Label from '~/components/Label';
 
 import { Container, Popover, Cover } from './styled';
 

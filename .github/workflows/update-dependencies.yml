@@ -1,19 +1,19 @@
-name: Update project dependencies
+name: Update Dependencies
 
 on:
   schedule:
-    - cron: '0 9 * * 5'
+    - cron: '0 9 * * *'
   workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '16'
-      - name: Getting outdated dependencies
+          node-version-file: '.nvmrc'
+      - name: Get outdated dependencies
         id: outdated_dependencies
         run: |
           set +e
@@ -21,9 +21,11 @@ jobs:
           yarn outdated --json | npx yarn-outdated-formatter >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
           set -e
-      - name: Updating dependencies to the latest version
+      - name: Update dependencies to the latest version
         run: yarn upgrade --latest
-      - name: Creating pull request
+      - name: Run all test suite
+        run: yarn test
+      - name: Create pull request
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

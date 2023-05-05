@@ -1,19 +1,60 @@
 import React, { useRef, useReducer } from 'react';
+import { graphql } from 'gatsby';
 import domtoimage from 'dom-to-image-more';
 import FileSaver from 'file-saver';
+import styled from 'styled-components';
 
-import { logCoverDownload, LogCoverEditEvent as CoverEdit } from 'src/utils/analytics';
-import { usei18n } from 'src/utils/i18n';
-import { formState, formReducer } from 'src/reducers/form';
+import { logCoverDownload, LogCoverEditEvent as CoverEdit } from '~/utils/analytics';
+import { usei18n } from '~/utils/i18n';
+import { formState, formReducer } from '~/reducers/form';
 
-import Page from 'src/components/Page';
-import ColorPicker from 'src/components/ColorPicker';
-import ImagePicker from 'src/components/ImagePicker';
-import OptionsToggle from 'src/components/OptionsToggle';
-import TitleInput from 'src/components/TitleInput';
-import Covers from 'src/components/Covers';
+import Page from '~/components/Page';
+import ColorPicker from '~/components/ColorPicker';
+import ImagePicker from '~/components/ImagePicker';
+import OptionsToggle from '~/components/OptionsToggle';
+import TitleInput from '~/components/TitleInput';
+import Covers from '~/components/Covers';
 
-import { Form, Fieldset, Preview, DownloadButton } from './styled';
+import Button from '~/components/Button';
+
+export const Form = styled.div`
+  width: 100%;
+`;
+
+export const Preview = styled.div`
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Fieldset = styled.div`
+  margin: 0px 10px 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #181818;
+  border-radius: 10px;
+`;
+
+export const DownloadButton = styled(Button)`
+  background: #21c549;
+  margin: 20px 0;
+  color: #fff;
+  border: 0px;
+  transition: all 0.2s;
+
+  :disabled {
+    cursor: default;
+    background: gray;
+  }
+
+  :enabled {
+    :hover {
+      background: #21c549;
+      transform: scale(1.05);
+    }
+  }
+`;
 
 export default function HomePage(): React.ReactElement {
   const i18n = usei18n();
@@ -143,3 +184,17 @@ export default function HomePage(): React.ReactElement {
     </Page>
   );
 }
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

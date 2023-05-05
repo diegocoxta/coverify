@@ -1,27 +1,15 @@
-import i18next from 'i18next';
-import Backend from 'i18next-http-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import { initReactI18next, useTranslation } from 'react-i18next';
+import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next';
 
-const supportedLngs = ['en', 'pt', 'es'];
+type i18nHook = {
+  getTranslationFor: (key: string) => string;
+  changeTranslationTo: (key: string) => void;
+  getCurrentTranslation: () => string;
+  getAllTranslations: () => string[];
+};
 
-export default function i18n() {
-  return i18next
-    .use(Backend)
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({
-      fallbackLng: 'en',
-      supportedLngs,
-      debug: true,
-      interpolation: {
-        escapeValue: false,
-      },
-    });
-}
-
-export function usei18n() {
-  const { t, i18n: context } = useTranslation();
+export function usei18n(): i18nHook {
+  const { t } = useTranslation();
+  const context = useI18next();
 
   function getTranslationFor(key: string): string {
     return t(key);
@@ -36,7 +24,7 @@ export function usei18n() {
   }
 
   function getAllTranslations(): string[] {
-    return supportedLngs;
+    return context.languages;
   }
 
   return { getTranslationFor, changeTranslationTo, getCurrentTranslation, getAllTranslations };
