@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import assets from 'src/assets';
+import assets from '~/assets';
 
 export default styled.div`
   overflow: hidden;

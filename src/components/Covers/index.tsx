@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import assets from 'src/assets';
-import { usei18n } from 'src/utils/i18n';
+import assets from '~/assets';
+import { usei18n } from '~/utils/i18n';
 
-import ViewProps from 'src/components/Covers/views/ViewProps';
-import View1 from 'src/components/Covers/views/View1';
-import View2 from 'src/components/Covers/views/View2';
-import View3 from 'src/components/Covers/views/View3';
-import View4 from 'src/components/Covers/views/View4';
+import ViewProps from '~/components/Covers/views/ViewProps';
+import View1 from '~/components/Covers/views/View1';
+import View2 from '~/components/Covers/views/View2';
+import View3 from '~/components/Covers/views/View3';
+import View4 from '~/components/Covers/views/View4';
 
 const Container = styled.div``;
 

@@ -1,8 +1,9 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
-import { usei18n } from 'src/utils/i18n';
+import { usei18n } from '~/utils/i18n';
 
-import GlobalStyle from 'src/components/GlobalStyle';
+import GlobalStyle from '~/components/GlobalStyle';
 
 import {
   Background,
@@ -26,6 +27,19 @@ export default function Page(props: PageProps): React.ReactElement {
 
   return (
     <>
+      <Helmet>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Create spotify-inspired covers for your personal playlists" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
+        <title>coverify. create spotify-inspired covers for your personal playlists.</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
       <GlobalStyle />
       <Background color={props.accentColor} />
       <Avatar href="https://diegocosta.me?utm_medium=coverify&utm_campaign=coverify-avatar&utm_source=coverify">

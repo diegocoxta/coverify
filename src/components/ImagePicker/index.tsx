@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 
-import { usei18n } from 'src/utils/i18n';
+import { usei18n } from '~/utils/i18n';
 
-import Button from 'src/components/Button';
-import Label from 'src/components/Label';
+import Button from '~/components/Button';
+import Label from '~/components/Label';
 
 import { Container, HiddenInput, PrivacyDisclaimer } from './styled';
 
