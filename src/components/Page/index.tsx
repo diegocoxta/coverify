@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { usei18n } from '~/utils/i18n';
+import { useLocale } from '~/utils/locale';
 
 import GlobalStyle from '~/components/GlobalStyle';
 
@@ -15,6 +15,10 @@ import {
   AvatarArrownDown,
   AvatarName,
   AvatarPhoto,
+  Form,
+  Preview,
+  Fieldset,
+  DownloadButton,
 } from './styled';
 
 interface PageProps {
@@ -23,7 +27,7 @@ interface PageProps {
 }
 
 export default function Page(props: PageProps): React.ReactElement {
-  const i18n = usei18n();
+  const locale = useLocale();
 
   return (
     <>
@@ -48,7 +52,7 @@ export default function Page(props: PageProps): React.ReactElement {
         <AvatarArrownDown />
       </Avatar>
       <Header>coverify.</Header>
-      {i18n
+      {locale
         .getTranslationFor('page.description')
         .split('\n')
         .map((d, index) => (
@@ -57,8 +61,10 @@ export default function Page(props: PageProps): React.ReactElement {
       <Container>{props.children}</Container>
       <Footer>
         CC-BY {new Date().getFullYear()} •
-        <a href="https://github.com/diegocoxta/coverify.">{i18n.getTranslationFor('footer.sourceCode')}</a>
+        <a href="https://github.com/diegocoxta/coverify.">{locale.getTranslationFor('footer.sourceCode')}</a>
       </Footer>
     </>
   );
 }
+
+export { Form, Preview, Fieldset, DownloadButton };

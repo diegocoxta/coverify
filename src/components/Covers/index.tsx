@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import assets from '~/assets';
-import { usei18n } from '~/utils/i18n';
+import { useLocale } from '~/utils/locale';
 
 import ViewProps from '~/components/Covers/views/ViewProps';
 import View1 from '~/components/Covers/views/View1';
@@ -38,7 +38,7 @@ interface CoverProps extends ViewProps {
 }
 
 export default function Covers(props: CoverProps): React.ReactElement {
-  const i18n = usei18n();
+  const locale = useLocale();
 
   const renderViews = (view: string) => {
     switch (view) {
@@ -59,7 +59,7 @@ export default function Covers(props: CoverProps): React.ReactElement {
       <Cover ref={props.innerRef} color={props.accentColor} logo={props.spotifyLogo}>
         {renderViews(props.view)}
       </Cover>
-      <Disclaimer>{i18n.getTranslationFor('preview.tip')}</Disclaimer>
+      <Disclaimer>{locale.getTranslationFor('preview.tip')}</Disclaimer>
     </Container>
   );
 }
