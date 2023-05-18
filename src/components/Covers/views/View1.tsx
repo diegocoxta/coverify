@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import DraggableImage from 'src/components/Covers/components/DraggableImage';
-import BlankImage from 'src/components/Covers/components/BlankImage';
+import DraggableImage from '~/components/Covers/components/DraggableImage';
+import BlankImage from '~/components/Covers/components/BlankImage';
 
 import ViewProps from './ViewProps';
 

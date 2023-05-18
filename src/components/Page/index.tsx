@@ -1,8 +1,9 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
-import { usei18n } from 'src/utils/i18n';
+import { useLocale } from '~/utils/locale';
 
-import GlobalStyle from 'src/components/GlobalStyle';
+import GlobalStyle from '~/components/GlobalStyle';
 
 import {
   Background,
@@ -14,6 +15,10 @@ import {
   AvatarArrownDown,
   AvatarName,
   AvatarPhoto,
+  Form,
+  Preview,
+  Fieldset,
+  DownloadButton,
 } from './styled';
 
 interface PageProps {
@@ -22,10 +27,23 @@ interface PageProps {
 }
 
 export default function Page(props: PageProps): React.ReactElement {
-  const i18n = usei18n();
+  const locale = useLocale();
 
   return (
     <>
+      <Helmet>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Create spotify-inspired covers for your personal playlists" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
+        <title>coverify. create spotify-inspired covers for your personal playlists.</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
       <GlobalStyle />
       <Background color={props.accentColor} />
       <Avatar href="https://diegocosta.me?utm_medium=coverify&utm_campaign=coverify-avatar&utm_source=coverify">
@@ -34,7 +52,7 @@ export default function Page(props: PageProps): React.ReactElement {
         <AvatarArrownDown />
       </Avatar>
       <Header>coverify.</Header>
-      {i18n
+      {locale
         .getTranslationFor('page.description')
         .split('\n')
         .map((d, index) => (
@@ -43,8 +61,10 @@ export default function Page(props: PageProps): React.ReactElement {
       <Container>{props.children}</Container>
       <Footer>
         CC-BY {new Date().getFullYear()} •
-        <a href="https://github.com/diegocoxta/coverify.">{i18n.getTranslationFor('footer.sourceCode')}</a>
+        <a href="https://github.com/diegocoxta/coverify.">{locale.getTranslationFor('footer.sourceCode')}</a>
       </Footer>
     </>
   );
 }
+
+export { Form, Preview, Fieldset, DownloadButton };

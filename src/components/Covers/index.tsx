@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import assets from 'src/assets';
-import { usei18n } from 'src/utils/i18n';
+import assets from '~/assets';
+import { useLocale } from '~/utils/locale';
 
-import ViewProps from 'src/components/Covers/views/ViewProps';
-import View1 from 'src/components/Covers/views/View1';
-import View2 from 'src/components/Covers/views/View2';
-import View3 from 'src/components/Covers/views/View3';
-import View4 from 'src/components/Covers/views/View4';
+import ViewProps from '~/components/Covers/views/ViewProps';
+import View1 from '~/components/Covers/views/View1';
+import View2 from '~/components/Covers/views/View2';
+import View3 from '~/components/Covers/views/View3';
+import View4 from '~/components/Covers/views/View4';
 
 const Container = styled.div``;
 
@@ -38,7 +38,7 @@ interface CoverProps extends ViewProps {
 }
 
 export default function Covers(props: CoverProps): React.ReactElement {
-  const i18n = usei18n();
+  const locale = useLocale();
 
   const renderViews = (view: string) => {
     switch (view) {
@@ -59,7 +59,7 @@ export default function Covers(props: CoverProps): React.ReactElement {
       <Cover ref={props.innerRef} color={props.accentColor} logo={props.spotifyLogo}>
         {renderViews(props.view)}
       </Cover>
-      <Disclaimer>{i18n.getTranslationFor('preview.tip')}</Disclaimer>
+      <Disclaimer>{locale.getTranslationFor('preview.tip')}</Disclaimer>
     </Container>
   );
 }
