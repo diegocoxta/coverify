@@ -1,22 +1,21 @@
 import React, { useRef, useReducer } from 'react';
+import { graphql } from 'gatsby';
 import domtoimage from 'dom-to-image-more';
 import FileSaver from 'file-saver';
 
-import { logCoverDownload, LogCoverEditEvent as CoverEdit } from 'src/utils/analytics';
-import { usei18n } from 'src/utils/i18n';
-import { formState, formReducer } from 'src/reducers/form';
+import { logCoverDownload, LogCoverEditEvent as CoverEdit } from '~/utils/analytics';
+import { useLocale } from '~/utils/locale';
+import { formState, formReducer } from '~/reducers/form';
 
-import Page from 'src/components/Page';
-import ColorPicker from 'src/components/ColorPicker';
-import ImagePicker from 'src/components/ImagePicker';
-import OptionsToggle from 'src/components/OptionsToggle';
-import TitleInput from 'src/components/TitleInput';
-import Covers from 'src/components/Covers';
-
-import { Form, Fieldset, Preview, DownloadButton } from './styled';
+import Page, { Form, Preview, Fieldset, DownloadButton } from '~/components/Page';
+import ColorPicker from '~/components/ColorPicker';
+import ImagePicker from '~/components/ImagePicker';
+import OptionsToggle from '~/components/OptionsToggle';
+import TitleInput from '~/components/TitleInput';
+import Covers from '~/components/Covers';
 
 export default function HomePage(): React.ReactElement {
-  const i18n = usei18n();
+  const locale = useLocale();
   const previewRef = useRef(null);
   const [state, dispatch] = useReducer(formReducer, formState);
 
@@ -36,11 +35,11 @@ export default function HomePage(): React.ReactElement {
       <Preview>
         <Covers
           {...state}
-          title={state.title !== '' ? state.title : i18n.getTranslationFor('form.title.placeholder')}
+          title={state.title !== '' ? state.title : locale.getTranslationFor('form.title.placeholder')}
           innerRef={previewRef}
         />
         <DownloadButton disabled={!previewRef.current} onClick={onDownloadClick}>
-          {i18n.getTranslationFor('preview.download')}
+          {locale.getTranslationFor('preview.download')}
         </DownloadButton>
       </Preview>
       <Form>
@@ -58,12 +57,12 @@ export default function HomePage(): React.ReactElement {
             options={[
               {
                 value: '#000000',
-                label: i18n.getTranslationFor('form.title.color_black'),
+                label: locale.getTranslationFor('form.title.color_black'),
                 color: '#000000',
               },
               {
                 value: '#ffffff',
-                label: i18n.getTranslationFor('form.title.color_white'),
+                label: locale.getTranslationFor('form.title.color_white'),
                 color: '#ffffff',
               },
             ]}
@@ -89,7 +88,7 @@ export default function HomePage(): React.ReactElement {
         </Fieldset>
         <Fieldset>
           <OptionsToggle
-            label={i18n.getTranslationFor('form.template.title')}
+            label={locale.getTranslationFor('form.template.title')}
             options={[
               { value: '1', label: '#1' },
               { value: '2', label: '#2' },
@@ -116,19 +115,19 @@ export default function HomePage(): React.ReactElement {
         </Fieldset>
         <Fieldset>
           <OptionsToggle
-            label={i18n.getTranslationFor('form.spotify.title')}
+            label={locale.getTranslationFor('form.spotify.title')}
             options={[
               {
                 value: 'spotifyBlackLogo',
-                label: i18n.getTranslationFor('form.spotify.icon_black'),
+                label: locale.getTranslationFor('form.spotify.icon_black'),
                 color: '#000000',
               },
               {
                 value: 'spotifyWhiteLogo',
-                label: i18n.getTranslationFor('form.spotify.icon_white'),
+                label: locale.getTranslationFor('form.spotify.icon_white'),
                 color: '#ffffff',
               },
-              { value: '', label: i18n.getTranslationFor('form.spotify.icon_none') },
+              { value: '', label: locale.getTranslationFor('form.spotify.icon_none') },
             ]}
             value={state.spotifyLogo}
             onChange={(logo) =>
@@ -143,3 +142,17 @@ export default function HomePage(): React.ReactElement {
     </Page>
   );
 }
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

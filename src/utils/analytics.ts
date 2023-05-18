@@ -8,6 +8,10 @@ export enum LogCoverEditEvent {
 }
 
 export function logCoverEdit(action: LogCoverEditEvent, value?: string): void {
+  if (window.gtag === undefined) {
+    return;
+  }
+
   window.gtag('event', 'cover_edit', {
     action,
     value,
@@ -15,6 +19,10 @@ export function logCoverEdit(action: LogCoverEditEvent, value?: string): void {
 }
 
 export function logCoverDownload(): void {
+  if (window.gtag === undefined) {
+    return;
+  }
+
   window.gtag('event', 'cover_download');
 }
 
@@ -26,6 +34,10 @@ type onPerfEntryType = {
 
 export function reportWebVitals(): void {
   function onPerfEntry(entry: onPerfEntryType): void {
+    if (window.gtag === undefined) {
+      return;
+    }
+
     window.gtag('event', 'web_vitals', {
       action: entry.name,
       value: Math.round(entry.name === 'CLS' ? entry.delta * 1000 : entry.delta),

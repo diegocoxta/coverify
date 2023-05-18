@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Label from 'src/components/Label';
-import ColorDot from 'src/components/ColorDot';
+import Label from '~/components/Label';
+import ColorDot from '~/components/ColorDot';
 
 import { Container, Options, Option } from './styled';
 

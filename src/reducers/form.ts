@@ -1,5 +1,5 @@
-import { logCoverEdit, LogCoverEditEvent as CoverEdit } from 'src/utils/analytics';
-import ViewProps from 'src/components/Covers/views/ViewProps';
+import { logCoverEdit, LogCoverEditEvent as CoverEdit } from '~/utils/analytics';
+import ViewProps from '~/components/Covers/views/ViewProps';
 
 type FormReducerType = {
   type: CoverEdit;
