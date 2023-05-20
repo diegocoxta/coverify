@@ -1,5 +1,5 @@
 import React, { useRef, useReducer } from 'react';
-import { graphql } from 'gatsby';
+import { graphql, HeadProps } from 'gatsby';
 import domtoimage from 'dom-to-image-more';
 import FileSaver from 'file-saver';
 
@@ -143,8 +143,22 @@ export default function HomePage(): React.ReactElement {
   );
 }
 
+export const Head = (props: HeadProps<Queries.HomePageQuery, { language: string }>) => (
+  <>
+    <html lang={props.pageContext.language} />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="description" content="Create spotify-inspired covers for your personal playlists" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <title>coverify. create spotify-inspired covers for your personal playlists.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap" rel="stylesheet" />
+  </>
+);
+
 export const query = graphql`
-  query ($language: String!) {
+  query HomePage($language: String!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {

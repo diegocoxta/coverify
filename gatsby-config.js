@@ -1,4 +1,7 @@
 module.exports = {
+  graphqlTypegen: {
+    typesOutputPath: 'gatsby-types.d.ts',
+  },
   plugins: [
     'gatsby-plugin-styled-components',
     {
