@@ -1,0 +1,43 @@
+name: Update NPM packages
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  update_npm_packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Get current time
+        uses: josStorer/get-current-time@v2
+        id: current-time
+        with:
+          format: YYYYMMDD
+          timezone: 'America/Sao_Paulo'
+      - name: Get outdated dependencies
+        id: outdated_dependencies
+        run: |
+          set +e
+          echo "OUTDATED_DEPENDENCIES<<EOF" >> $GITHUB_ENV
+          yarn outdated --json | npx yarn-outdated-formatter >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          set -e
+      - name: Update dependencies to the latest version
+        run: yarn upgrade --latest
+      - name: Run all test suite
+        run: yarn test
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore(updated_npm_packages): keeping dependencies updated to the latest version automatically'
+          branch: updated_npm_packages
+          delete-branch: true
+          title: '[${{ steps.current-time.outputs.readableTime }}] Updated NPM packages'
+          base: main
+          body: ${{ env.OUTDATED_DEPENDENCIES }}
