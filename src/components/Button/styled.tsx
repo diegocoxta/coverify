@@ -14,7 +14,7 @@ export const Button = styled.button`
   text-transform: uppercase;
   transition: 0.5s all linear;
 
-  :hover {
+  &:hover {
     background: rgba(255, 255, 255, 0.1);
   }
 `;

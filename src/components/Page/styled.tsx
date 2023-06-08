@@ -23,7 +23,7 @@ export const Avatar = styled.a`
   transition: all 0.2s;
   margin: 20px auto 0px;
 
-  :hover {
+  &:hover {
     background: #1e1e1e;
   }
 
@@ -127,13 +127,13 @@ export const DownloadButton = styled(Button)`
   border: 0px;
   transition: all 0.2s;
 
-  :disabled {
+  &:disabled {
     cursor: default;
     background: gray;
   }
 
-  :enabled {
-    :hover {
+  &:enabled {
+    &:hover {
       background: #21c549;
       transform: scale(1.05);
     }
