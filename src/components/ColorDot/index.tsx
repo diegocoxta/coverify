@@ -1,1 +1,1 @@
-export { Dot as default } from './styled';
+export { ColorDot as default } from './styled';

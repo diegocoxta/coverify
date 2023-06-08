@@ -14,7 +14,7 @@ export const Field = styled.input`
   box-sizing: border-box;
   color: #b5b5b5;
 
-  :focus {
+  &:focus {
     outline: none;
   }
 `;
