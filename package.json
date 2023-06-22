@@ -12,13 +12,13 @@
     "gatsby-plugin-styled-components": "^6.11.0",
     "gatsby-plugin-typescript": "5.11.0",
     "gatsby-source-filesystem": "^5.11.0",
-    "i18next": "^23.2.1",
+    "i18next": "^23.2.3",
     "react": "^18.2.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.5",
-    "react-i18next": "^13.0.0",
-    "styled-components": "^6.0.0-rc.3",
+    "react-i18next": "^13.0.1",
+    "styled-components": "^6.0.0-rc.5",
     "web-vitals": "^3.3.2"
   },
   "devDependencies": {
