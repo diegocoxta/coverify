@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import DraggableImage from '~/components/Covers/components/DraggableImage';
+import DraggableResizableImage from '~/components/Covers/components/DraggableResizableImage';
 import BlankImage from '~/components/Covers/components/BlankImage';
 
 import ViewProps from './ViewProps';
@@ -37,7 +37,7 @@ export default function Model1(props: ViewProps): React.ReactElement {
       <Header>
         <Title color={props.titleColor}>{props.title}</Title>
       </Header>
-      <Image>{props.image && <DraggableImage source={props.image} width={360} />}</Image>
+      <Image>{props.image && <DraggableResizableImage source={props.image} initialWidth={310} />}</Image>
     </>
   );
 }

@@ -9,4 +9,16 @@ export const GlobalStyle = createGlobalStyle`
     background-repeat: no-repeat;
     font-family: 'Source Sans Pro', sans-serif;
   }
+
+  .box {
+    display: flex;
+  }
+
+  .hover-handles .react-resizable-handle {
+    display: none;
+  }
+
+  .hover-handles:hover .react-resizable-handle {
+    display: block;
+  }
 `;
