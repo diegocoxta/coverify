@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import assets from '~/assets';
-import DraggableImage from '~/components/Covers/components/DraggableImage';
+import DraggableResizableImage from '~/components/Covers/components/DraggableResizableImage';
 import BlankImage from '~/components/Covers/components/BlankImage';
 
 import ViewProps from './ViewProps';
@@ -46,7 +46,7 @@ export default function Model3(props: ViewProps): React.ReactElement {
     <>
       <SpotifyLogo logo={props.spotifyLogo} />
       <Image color={props.accentColor}>
-        {props.image && <DraggableImage source={props.image} width={360} />}
+        {props.image && <DraggableResizableImage source={props.image} initialWidth={340} />}
         <Title color={props.titleColor} borderColor={props.accentColor}>
           {props.title}
         </Title>
