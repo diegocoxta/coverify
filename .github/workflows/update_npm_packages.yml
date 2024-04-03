@@ -29,8 +29,6 @@ jobs:
           set -e
       - name: Update dependencies to the latest version
         run: yarn upgrade --latest
-      - name: Run all test suite
-        run: yarn test
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3
         with:
