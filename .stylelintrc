@@ -1,7 +1,6 @@
 {
-  "processors": ["stylelint-processor-styled-components"],
   "customSyntax": "postcss",
-  "extends": ["stylelint-config-recommended", "stylelint-config-styled-components"],
+  "extends": ["stylelint-config-recommended"],
   "overrides": [
     {
       "files": ["**/*.js", "**/*.ts", "**/*.tsx", "**/*.snap"],
@@ -9,6 +8,7 @@
     }
   ],
   "rules": {
+    "no-empty-source": null,
     "block-no-empty": null,
     "color-no-invalid-hex": true,
     "property-no-unknown": [
