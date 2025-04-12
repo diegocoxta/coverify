@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import DraggableResizableImage from '~/components/Covers/components/DraggableResizableImage';
 import BlankImage from '~/components/Covers/components/BlankImage';
@@ -10,7 +10,7 @@ const Header = styled.div`
   height: 80px;
   width: 230px;
   margin: 40px 0 15px;
-  word-break: break-word;
+  overflow-wrap: break-word;
   text-align: center;
   overflow: hidden;
 `;

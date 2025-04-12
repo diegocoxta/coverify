@@ -3,7 +3,6 @@ module.exports = {
     typesOutputPath: 'gatsby-types.d.ts',
   },
   plugins: [
-    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-typescript',
       options: {
