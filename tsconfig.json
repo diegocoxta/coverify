@@ -1,20 +1,4 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "target": "esnext",
-    "jsx": "preserve",
-    "lib": ["dom", "esnext"],
-    "strict": true,
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "noUnusedLocals": false,
-    "baseUrl": "./",
-    "paths": {
-      "~/*": ["src/*"]
-    },
-    "skipLibCheck": true
-  },
-  "exclude": ["node_modules", "public", ".cache"]
+  "files": [],
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }

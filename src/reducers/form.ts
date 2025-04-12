@@ -1,10 +1,18 @@
-import { logCoverEdit, LogCoverEditEvent as CoverEdit } from '~/utils/analytics';
 import ViewProps from '~/components/Covers/views/ViewProps';
 
 type FormReducerType = {
-  type: CoverEdit;
+  type: LogCoverEditEvent;
   value: string;
 };
+
+export enum LogCoverEditEvent {
+  TITLE_CHANGED,
+  TITLE_COLOR_CHANGED,
+  COLOR_CHANGED,
+  IMAGE_CHANGED,
+  STREAMING_SERVICE_LOGO_CHANGED,
+  VIEW_CHANGED,
+}
 
 export const formState: ViewProps = {
   title: '',
@@ -16,20 +24,18 @@ export const formState: ViewProps = {
 };
 
 export function formReducer(state = formState, action: FormReducerType): ViewProps {
-  logCoverEdit(action.type, action.type !== CoverEdit.image_changed ? action.value : '');
-
   switch (action.type) {
-    case CoverEdit.title_changed:
+    case LogCoverEditEvent.TITLE_CHANGED:
       return { ...state, title: action.value };
-    case CoverEdit.title_color_changed:
+    case LogCoverEditEvent.TITLE_COLOR_CHANGED:
       return { ...state, titleColor: action.value };
-    case CoverEdit.color_changed:
+    case LogCoverEditEvent.COLOR_CHANGED:
       return { ...state, accentColor: action.value };
-    case CoverEdit.image_changed:
+    case LogCoverEditEvent.IMAGE_CHANGED:
       return { ...state, image: action.value };
-    case CoverEdit.spotify_logo_changed:
+    case LogCoverEditEvent.STREAMING_SERVICE_LOGO_CHANGED:
       return { ...state, spotifyLogo: action.value };
-    case CoverEdit.view_changed:
+    case LogCoverEditEvent.VIEW_CHANGED:
       return { ...state, view: action.value };
     default:
       throw new Error();
