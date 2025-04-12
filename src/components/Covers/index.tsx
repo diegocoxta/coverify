@@ -34,7 +34,7 @@ const Disclaimer = styled.p`
 `;
 
 interface CoverProps extends ViewProps {
-  innerRef: React.RefObject<HTMLDivElement>;
+  innerRef: React.RefObject<HTMLDivElement | undefined>;
 }
 
 export default function Covers(props: CoverProps): React.ReactElement {
@@ -54,11 +54,15 @@ export default function Covers(props: CoverProps): React.ReactElement {
     }
   };
 
+  const coverProps: Record<string, unknown> = {
+    color: props.accentColor,
+    logo: props.spotifyLogo,
+    ref: props.innerRef,
+  };
+
   return (
     <Container>
-      <Cover ref={props.innerRef} color={props.accentColor} logo={props.spotifyLogo}>
-        {renderViews(props.view)}
-      </Cover>
+      <Cover {...coverProps}>{renderViews(props.view)}</Cover>
       <Disclaimer>{locale.getTranslationFor('preview.tip')}</Disclaimer>
     </Container>
   );

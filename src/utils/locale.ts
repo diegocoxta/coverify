@@ -1,30 +1,29 @@
-import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'react-i18next';
 
 type Locale = {
   getTranslationFor: (key: string) => string;
   changeTranslationTo: (key: string) => void;
   getCurrentTranslation: () => string;
-  getAllTranslations: () => string[];
+  getAllTranslations: () => readonly string[];
 };
 
 export function useLocale(): Locale {
-  const { t } = useTranslation();
-  const context = useI18next();
+  const { t, i18n } = useTranslation();
 
   function getTranslationFor(key: string): string {
     return t(key);
   }
 
   function changeTranslationTo(key: string): void {
-    context.changeLanguage(key);
+    i18n.changeLanguage(key);
   }
 
   function getCurrentTranslation(): string {
-    return context.language;
+    return i18n.language;
   }
 
-  function getAllTranslations(): string[] {
-    return context.languages;
+  function getAllTranslations(): readonly string[] {
+    return i18n.languages;
   }
 
   return { getTranslationFor, changeTranslationTo, getCurrentTranslation, getAllTranslations };
