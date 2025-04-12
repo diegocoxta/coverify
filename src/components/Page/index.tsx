@@ -11,7 +11,7 @@ import {
   Container,
   Footer,
   Avatar,
-  AvatarArrownDown,
+  AvatarIcon,
   AvatarName,
   AvatarPhoto,
   Form,
@@ -35,7 +35,7 @@ export default function Page(props: PageProps): React.ReactElement {
       <Avatar href="https://diegocosta.me?utm_medium=coverify&utm_campaign=coverify-avatar&utm_source=coverify">
         <AvatarPhoto alt="diegocosta.me" src="https://avatars.githubusercontent.com/u/3134422?s=60&v=4" />
         <AvatarName>diegocosta.me</AvatarName>
-        <AvatarArrownDown />
+        <AvatarIcon>▼</AvatarIcon>
       </Avatar>
       <Header>coverify.</Header>
       {locale

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Draggable from 'react-draggable';
 import { ResizableBox } from 'react-resizable';
 import 'react-resizable/css/styles.css';
