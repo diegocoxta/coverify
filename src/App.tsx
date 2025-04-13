@@ -1,11 +1,9 @@
 import React, { useRef, useReducer } from 'react';
-import { graphql, HeadProps } from 'gatsby';
 import domtoimage from 'dom-to-image-more';
 import FileSaver from 'file-saver';
 
-import { logCoverDownload, LogCoverEditEvent as CoverEdit } from '~/utils/analytics';
 import { useLocale } from '~/utils/locale';
-import { formState, formReducer } from '~/reducers/form';
+import { formState, formReducer, LogCoverEditEvent } from '~/reducers/form';
 
 import Page, { Form, Preview, Fieldset, DownloadButton } from '~/components/Page';
 import ColorPicker from '~/components/ColorPicker';
@@ -16,7 +14,7 @@ import Covers from '~/components/Covers';
 
 export default function HomePage(): React.ReactElement {
   const locale = useLocale();
-  const previewRef = useRef(null);
+  const previewRef = useRef<HTMLDivElement>(undefined);
   const [state, dispatch] = useReducer(formReducer, formState);
 
   const onDownloadClick = () => {
@@ -26,8 +24,6 @@ export default function HomePage(): React.ReactElement {
         FileSaver.saveAs(dataUrl, 'cover.png');
       });
     });
-
-    logCoverDownload();
   };
 
   return (
@@ -48,7 +44,7 @@ export default function HomePage(): React.ReactElement {
             value={state.title}
             onChange={(e) =>
               dispatch({
-                type: CoverEdit.title_changed,
+                type: LogCoverEditEvent.TITLE_CHANGED,
                 value: e.target.value,
               })
             }
@@ -69,7 +65,7 @@ export default function HomePage(): React.ReactElement {
             value={state.titleColor}
             onChange={(color) =>
               dispatch({
-                type: CoverEdit.title_color_changed,
+                type: LogCoverEditEvent.TITLE_COLOR_CHANGED,
                 value: color,
               })
             }
@@ -80,7 +76,7 @@ export default function HomePage(): React.ReactElement {
             value={state.image}
             onChange={(image) =>
               dispatch({
-                type: CoverEdit.image_changed,
+                type: LogCoverEditEvent.IMAGE_CHANGED,
                 value: image,
               })
             }
@@ -98,7 +94,7 @@ export default function HomePage(): React.ReactElement {
             value={state.view}
             onChange={(view) =>
               dispatch({
-                type: CoverEdit.view_changed,
+                type: LogCoverEditEvent.VIEW_CHANGED,
                 value: view,
               })
             }
@@ -107,7 +103,7 @@ export default function HomePage(): React.ReactElement {
             value={state.accentColor}
             onChange={(color) =>
               dispatch({
-                type: CoverEdit.color_changed,
+                type: LogCoverEditEvent.COLOR_CHANGED,
                 value: color,
               })
             }
@@ -132,7 +128,7 @@ export default function HomePage(): React.ReactElement {
             value={state.spotifyLogo}
             onChange={(logo) =>
               dispatch({
-                type: CoverEdit.spotify_logo_changed,
+                type: LogCoverEditEvent.STREAMING_SERVICE_LOGO_CHANGED,
                 value: logo,
               })
             }
@@ -142,31 +138,3 @@ export default function HomePage(): React.ReactElement {
     </Page>
   );
 }
-
-export const Head = (props: HeadProps<Queries.HomePageQuery, { language: string }>) => (
-  <>
-    <html lang={props.pageContext.language} />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="description" content="Create spotify-inspired covers for your personal playlists" />
-    <link rel="apple-touch-icon" href="/logo192.png" />
-    <title>coverify. create spotify-inspired covers for your personal playlists.</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap" rel="stylesheet" />
-  </>
-);
-
-export const query = graphql`
-  query HomePage($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-  }
-`;

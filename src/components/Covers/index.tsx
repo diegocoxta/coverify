@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import assets from '~/assets';
 import { useLocale } from '~/utils/locale';
@@ -10,7 +10,11 @@ import View2 from '~/components/Covers/views/View2';
 import View3 from '~/components/Covers/views/View3';
 import View4 from '~/components/Covers/views/View4';
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Cover = styled.div<{ color?: ViewProps['accentColor']; logo?: ViewProps['spotifyLogo'] }>`
   display: flex;
@@ -34,7 +38,7 @@ const Disclaimer = styled.p`
 `;
 
 interface CoverProps extends ViewProps {
-  innerRef: React.RefObject<HTMLDivElement>;
+  innerRef: React.RefObject<HTMLDivElement | undefined>;
 }
 
 export default function Covers(props: CoverProps): React.ReactElement {
@@ -54,11 +58,15 @@ export default function Covers(props: CoverProps): React.ReactElement {
     }
   };
 
+  const coverProps: Record<string, unknown> = {
+    color: props.accentColor,
+    logo: props.spotifyLogo,
+    ref: props.innerRef,
+  };
+
   return (
     <Container>
-      <Cover ref={props.innerRef} color={props.accentColor} logo={props.spotifyLogo}>
-        {renderViews(props.view)}
-      </Cover>
+      <Cover {...coverProps}>{renderViews(props.view)}</Cover>
       <Disclaimer>{locale.getTranslationFor('preview.tip')}</Disclaimer>
     </Container>
   );
