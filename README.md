@@ -14,7 +14,7 @@ So, I migrated my [Figma templates](https://www.figma.com/file/YQ2fg9I1X6MAhhhZy
 
 ## 🖥️ Tech Stack
 
-- Build with Gatsby w/ TypeScript and styled-components.
+- Build with Vite w/ TypeScript and @emotion.
 - Using some awesome dependencies like dom-to-image-more, file-saver, react-color and react-draggable.
 - Multiple languages with i18next
 - Also, with ESLint, Prettier, stylelint, Husky, lint-staged and [much more](package.json).
@@ -23,8 +23,8 @@ So, I migrated my [Figma templates](https://www.figma.com/file/YQ2fg9I1X6MAhhhZy
 
 1. [Clone this repo](https://help.github.com/en/articles/cloning-a-repository) with git.
 2. Install dependencies by running `yarn install` within the directory that you cloned (probably `coverify`).
-3. Start the development server with `yarn start`.
-4. Open development site by going to [`http://localhost:3000`](http://localhost:8000) in your browser.
+3. Start the development server with `yarn dev`.
+4. Open development site by going to your localhost in your browser.
 
 ## :coffee: Get in touch
 
