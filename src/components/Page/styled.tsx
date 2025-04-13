@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import Button from '~/components/Button';
 
@@ -46,9 +46,7 @@ export const AvatarName = styled.span`
   font-size: 13px;
 `;
 
-export const AvatarArrownDown = styled.span.attrs({
-  children: '▼',
-})`
+export const AvatarIcon = styled.span`
   color: #fff;
   font-size: 10px;
   margin-left: 6px;
