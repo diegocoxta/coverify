@@ -18,7 +18,7 @@
   "form.spotify.icon_black": "Black",
   "form.spotify.icon_white": "White",
   "form.spotify.icon_none": "None",
-  "preview.tip": "Tips: Drag the image to position adjustment; Resize the image with the lower right handle.",
+  "preview.tip": "Tips: Drag the image to adjust its position; Resize it using the arrow in the top-right corner of the image.",
   "preview.download": "Download Image",
   "footer.sourceCode": "source code"
 }

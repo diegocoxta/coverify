@@ -10,7 +10,11 @@ import View2 from '~/components/Covers/views/View2';
 import View3 from '~/components/Covers/views/View3';
 import View4 from '~/components/Covers/views/View4';
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Cover = styled.div<{ color?: ViewProps['accentColor']; logo?: ViewProps['spotifyLogo'] }>`
   display: flex;
