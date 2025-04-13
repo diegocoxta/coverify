@@ -34,7 +34,7 @@ export default function DraggableResizableImage({
         axis={'x'}
         className={'box hover-handles'}
         draggableOpts={{ grid: [1, 1] }}
-        onResize={(e, data) => {
+        onResize={(_, data) => {
           const newWidth = data.size.width;
           const resizePercentage = (Math.abs(newWidth - width) / width) * 100;
           const tolerancePercentage = 10;
