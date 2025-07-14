@@ -1,4 +1,4 @@
-name: Update NPM packages
+name: npm-packages-bump
 
 on:
   schedule:
@@ -6,20 +6,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  update_npm_packages:
+  npm-packages-bump:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-      - name: Get current time
-        uses: josStorer/get-current-time@v2
+      - uses: josStorer/get-current-time@v2
         id: current-time
         with:
           format: YYYYMMDD
           timezone: 'America/Sao_Paulo'
-      - name: Get outdated dependencies
+      - name: yarn-outdated
         id: outdated_dependencies
         run: |
           set +e
@@ -27,15 +26,15 @@ jobs:
           yarn outdated --json | npx yarn-outdated-formatter >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
           set -e
-      - name: Update dependencies to the latest version
+      - name: yarn-upgrade
         run: yarn upgrade --latest
-      - name: Create pull request
-        uses: peter-evans/create-pull-request@v3
+      - uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'chore(updated_npm_packages): keeping dependencies updated to the latest version automatically'
-          branch: updated_npm_packages
+          commit-message: 'chore(npm-packages-bump): keeping dependencies updated to the latest version automatically'
+          branch: npm-packages-bump
           delete-branch: true
-          title: '[${{ steps.current-time.outputs.readableTime }}] Updated NPM packages'
+          title: '[${{ steps.current-time.outputs.readableTime }}] npm-packages-bump - updated NPM packages'
           base: main
           body: ${{ env.OUTDATED_DEPENDENCIES }}
+          reviewers: diegocoxta
