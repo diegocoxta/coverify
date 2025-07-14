@@ -18,7 +18,7 @@
     "@emotion/styled": "^11.14.1",
     "dom-to-image-more": "^3.6.0",
     "file-saver": "^2.0.5",
-    "i18next": "^25.3.1",
+    "i18next": "^25.3.2",
     "i18next-browser-languagedetector": "^8.2.0",
     "i18next-http-backend": "^3.0.2",
     "react": "^19.0.0",
@@ -29,16 +29,16 @@
     "react-resizable": "^3.0.5"
   },
   "devDependencies": {
-    "@eslint/js": "^9.30.1",
+    "@eslint/js": "^9.31.0",
     "@types/dom-to-image": "^2.6.7",
     "@types/file-saver": "^2.0.7",
-    "@types/node": "^24.0.10",
+    "@types/node": "^24.0.13",
     "@types/react": "^19.1.8",
     "@types/react-color": "^3.0.13",
     "@types/react-dom": "^19.1.6",
     "@types/react-resizable": "^3.0.8",
     "@vitejs/plugin-react": "^4.6.0",
-    "eslint": "^9.30.1",
+    "eslint": "^9.31.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
@@ -50,8 +50,8 @@
     "stylelint": "^16.21.1",
     "stylelint-config-recommended": "^16.0.0",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.2"
+    "typescript-eslint": "^8.36.0",
+    "vite": "^7.0.4"
   },
   "lint-staged": {
     "*.{ts,tsx,js}": [
