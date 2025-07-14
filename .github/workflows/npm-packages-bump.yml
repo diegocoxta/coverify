@@ -38,3 +38,4 @@ jobs:
           base: main
           body: ${{ env.OUTDATED_DEPENDENCIES }}
           reviewers: diegocoxta
+          assignees: diegocoxta
